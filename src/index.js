@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
 // components
 import Meta from './Meta';
@@ -14,9 +15,11 @@ import './assets/scss/palette.scss'; // import root color settings
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Reset />
-    <GlobalStyle />
-    <Meta />
-    <App />
+    <BrowserRouter>
+      <Reset />
+      <GlobalStyle />
+      <Meta />
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
