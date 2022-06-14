@@ -1,13 +1,12 @@
 import React from 'react';
+import Header from './components/JMHeader';
+import Footer from './components/JMFooter';
 
 const App = () => {
   return (
     <>
-      <h1>산책하개</h1>
-      <h2>Hello</h2>
-      <h3>Hello</h3>
-      <h4>Hello</h4>
-      <p>hello</p>
+      <Header>산책하개</Header>
+      <Footer />
     </>
   );
 };
