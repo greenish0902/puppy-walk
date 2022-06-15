@@ -37,7 +37,7 @@ const HeaderContainer = styled.div`
 `;
 
 const NavBarContainer = styled.div`
-  width: 360px;
+  width: 0px;
   position: absolute;
   top: 40px;
   left: 50%;
@@ -45,6 +45,7 @@ const NavBarContainer = styled.div`
   background-color: #eee9;
   transition: width 0.2s;
   overflow: hidden;
+  padding-bottom: 55px;
 
   ul {
     &:first-child {
