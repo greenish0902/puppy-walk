@@ -7,6 +7,7 @@ import App from './App';
 
 // styling
 import { Reset } from 'styled-reset'; // reset all styles; GloabalStyle 보다 먼저 적용되어야 함
+import { BrowserRouter } from 'react-router-dom';
 import GlobalStyle from './GlobalStyle';
 import './assets/scss/fonts.scss'; // import fonts
 import './assets/scss/palette.scss'; // import root color settings
@@ -17,6 +18,8 @@ root.render(
     <Reset />
     <GlobalStyle />
     <Meta />
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
