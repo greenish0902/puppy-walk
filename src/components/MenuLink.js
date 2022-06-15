@@ -8,13 +8,10 @@ const MenuLinkContainer = styled(NavLink)`
   text-decoration: none;
   padding-bottom: 2px;
   color: #222;
-  padding-right: 15px;
-  &:hover {
-    color: #25AF60
-  }
-
+  padding: 0 8px;
+  text-align: center;
   &.active {
-    color: #25AF60;
+    background: #25AF60;
   }
 `
 const MenuLink = memo(({to, children}) => <MenuLinkContainer to={to}>{children}</MenuLinkContainer>);

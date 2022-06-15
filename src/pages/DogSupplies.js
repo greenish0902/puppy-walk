@@ -5,9 +5,11 @@
  */
 import React, { memo, useEffect } from 'react';
 import styled from "styled-components";
-import MenuLink from '../components/MenuLink';
-import {useParams} from "react-router-dom"
+import {useParams} from "react-router-dom";
 
+import MenuLink from '../components/MenuLink';
+import JMFooter from "../components/JMFooter";
+import JMHeader from "../components/JMHeader";
 import Goods from '../components/Goods';
 import img from '../assets/img/dog.png';
 
@@ -17,10 +19,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 const DogSuppliesBox = styled.div`
-  height: 600px;
+  height: 960px;
   width: 360px;
   padding: 10px;
-
+  margin: 40px auto 55px auto;
   nav {
     text-align: center;
   }
@@ -67,77 +69,80 @@ const DogSupplies = memo(() => {
     }
   }, [where, state])
   return (
-    <DogSuppliesBox>
-      <nav>
-        <MenuLink to={"/best"}>BEST</MenuLink>
-        <MenuLink to={"/category1"}>카테고리1</MenuLink>
-        <MenuLink to={"/category2"}>카테고리2</MenuLink>
-        <MenuLink to={"/category3"}>카테고리3</MenuLink>
-      </nav>
-      <hr/>
-      {
-        state ? (
-          <div className='categoryItem'>
-            <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-            <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-            <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-            <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-          </div>
-        ) : (
-          <div>
-            <h4>BEST</h4>
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              className="mySwiper"
-            >
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-            </Swiper>
-            <h4>카테고리1</h4>
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              className="mySwiper"
-            >
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-            </Swiper>
-            <h4>카테고리2</h4>
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              className="mySwiper"
-            >
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-            </Swiper>
-            <h4>카테고리3</h4>
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={20}
-              slidesPerGroup={1}
-              className="mySwiper"
-            >
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-              <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-            </Swiper>
-          </div>
-        )
-      }
-
-    </DogSuppliesBox>
+    <>
+      <JMHeader>애견용품</JMHeader>
+      <DogSuppliesBox>
+        <nav>
+          <MenuLink to={"/best"}>BEST</MenuLink>
+          <MenuLink to={"/category1"}>카테고리1</MenuLink>
+          <MenuLink to={"/category2"}>카테고리2</MenuLink>
+          <MenuLink to={"/category3"}>카테고리3</MenuLink>
+        </nav>
+        <hr/>
+        {
+          state ? (
+            <div className='categoryItem'>
+              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+            </div>
+          ) : (
+            <div>
+              <h4>BEST</h4>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={20}
+                slidesPerGroup={1}
+                className="mySwiper"
+              >
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+              </Swiper>
+              <h4>카테고리1</h4>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={20}
+                slidesPerGroup={1}
+                className="mySwiper"
+              >
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+              </Swiper>
+              <h4>카테고리2</h4>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={20}
+                slidesPerGroup={1}
+                className="mySwiper"
+              >
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+              </Swiper>
+              <h4>카테고리3</h4>
+              <Swiper
+                slidesPerView={2}
+                spaceBetween={20}
+                slidesPerGroup={1}
+                className="mySwiper"
+              >
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+              </Swiper>
+            </div>
+          )
+        }
+      </DogSuppliesBox>
+      <JMFooter/>
+    </>
   );
 });
 

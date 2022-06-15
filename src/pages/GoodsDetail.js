@@ -7,11 +7,12 @@ import React, { memo } from 'react';
 import {useParams} from "react-router-dom";
 import styled from "styled-components";
 
-import "../assets/scss/palette.scss"
+import JMFooter from "../components/JMFooter";
+import JMHeader from "../components/JMHeader";
 import img from '../assets/img/dog.png';
 const GoodsDetailBox = styled.div`
   width: 360px;
-  margin: auto;
+  margin: 40px auto 55px auto;
   img{
     display: block;
     width: 360px;
@@ -115,44 +116,48 @@ const GoodsDetail = memo(() => {
     setTab("inquiry")
   },[setTab]);
   return (
-    <GoodsDetailBox>
-      <img src={img} alt={title}/>
-      <p>{title}</p>
-      <p>{price}</p>
-      <select name="option">
-        <option value="">옵션선택</option>
-        <option value="1">이것저것</option>
-      </select>
-      <button className='plusMinusButton' onClick={onClickMinus} type="button">-</button>
-      <span>{count}</span>
-      <button className='plusMinusButton' onClick={onClickPlus} type="button">+</button>
-      <div className="buttonBox">
-        <button className="cart" type="button">장바구니 담기</button>
-        <button className="pay" type="button">바로 결제</button>
-      </div>
-      <div className="contentContainer">
-        <button onClick={onClickDetail} type="button">상세정보</button>
-        <button onClick={onClickReview} type="button">후기</button>
-        <button onClick={onClickInquiry} type="button">제품문의</button>
-      </div>
-      <div className="content">
-        {
-          tab === "detail" ? (
-            <p>
-              상세정보
-            </p>
-          ) : ( tab === "review" ? (
-            <p>
-              후기
-            </p>
-          ) : (
-            <p>
-              제품문의
-            </p>
-          ))
-        }
-      </div>
-    </GoodsDetailBox>
+    <>
+      <JMHeader>{title}</JMHeader>
+      <GoodsDetailBox>
+        <img src={img} alt={title}/>
+        <p>{title}</p>
+        <p>{price}</p>
+        <select name="option">
+          <option value="">옵션선택</option>
+          <option value="1">이것저것</option>
+        </select>
+        <button className='plusMinusButton' onClick={onClickMinus} type="button">-</button>
+        <span>{count}</span>
+        <button className='plusMinusButton' onClick={onClickPlus} type="button">+</button>
+        <div className="buttonBox">
+          <button className="cart" type="button">장바구니 담기</button>
+          <button className="pay" type="button">바로 결제</button>
+        </div>
+        <div className="contentContainer">
+          <button onClick={onClickDetail} type="button">상세정보</button>
+          <button onClick={onClickReview} type="button">후기</button>
+          <button onClick={onClickInquiry} type="button">제품문의</button>
+        </div>
+        <div className="content">
+          {
+            tab === "detail" ? (
+              <p>
+                상세정보
+              </p>
+            ) : ( tab === "review" ? (
+              <p>
+                후기
+              </p>
+            ) : (
+              <p>
+                제품문의
+              </p>
+            ))
+          }
+        </div>
+      </GoodsDetailBox>
+    <JMFooter/>
+    </>
   );
 });
 
