@@ -24,6 +24,7 @@ const CartBox = styled.div`
     border-radius: 5px;
     height: 40px;
     width: 100px;
+    margin-top: 50px;
     margin-left: 250px;
     margin-bottom: 10px;
     cursor: pointer;
@@ -75,13 +76,15 @@ const Cart = memo(() => {
       <CartBox>
         {
           item ? (
-            <ul>
+            <div>
               <button className="deleteBtn" type="button">선택 삭제</button>
-              <JSCartGoods src={img} title={title} count={count} price={price}/>
+              <ul>
+                <JSCartGoods test={test} src={img} title={title} count={count} price={price}/>
+              </ul>
               <div className="amount">
                 <p>{price}원 &nbsp;&nbsp; + &nbsp;&nbsp; 배송비 = &nbsp;&nbsp; 총 금액</p>
               </div>
-            </ul>
+            </div>
           ) : (
             <div className="nothingInCart">
               <p className="nothingMessage">장바구니에 담긴 상품이 없습니다.</p>

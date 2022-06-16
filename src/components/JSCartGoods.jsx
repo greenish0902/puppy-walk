@@ -51,19 +51,19 @@ const CartGoodsBox = styled.li`
   }
 `
 
-const CartGoods = memo(({src, count, title, price}) => {
+const CartGoods = memo(({ src, count, title, price}) => {
   return (
     <CartGoodsBox href={`/cart/${title}/${count}/${price}`}>
       <form>
         <input type="checkbox"/>
+        <img src={src} alt={title}/>
+        <div className="pBox">
+          <p>{title}</p>
+          <p>{count}</p>
+          <p>{price}</p>
+        </div>
+        <button type="button">X</button>
       </form>
-      <img src={src} alt={title}/>
-      <div className="pBox">
-        <p>{title}</p>
-        <p>{count}</p>
-        <p>{price}</p>
-      </div>
-      <button type="button">X</button>
     </CartGoodsBox>
   );
 });
