@@ -1,3 +1,8 @@
+/**
+ * @filename JSCartGoods.jsx
+ * @description 장바구니 상품의 상품명, 갯수, 가격
+ * @author 신지섭(pon0304616@gmail.com)
+ */
 import React, { memo } from 'react';
 import styled from 'styled-components'
 

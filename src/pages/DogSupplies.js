@@ -10,7 +10,7 @@ import {useParams} from "react-router-dom";
 import MenuLink from '../components/MenuLink';
 import JMFooter from "../components/JMFooter";
 import JMHeader from "../components/JMHeader";
-import Goods from '../components/Goods';
+import JSGoods from '../components/JSGoods';
 import img from '../assets/img/dog.png';
 
 // Import Swiper React components
@@ -82,10 +82,10 @@ const DogSupplies = memo(() => {
         {
           state ? (
             <div className='categoryItem'>
-              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
-              <Goods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
             </div>
           ) : (
             <div>
@@ -96,10 +96,10 @@ const DogSupplies = memo(() => {
                 slidesPerGroup={1}
                 className="mySwiper"
               >
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
               </Swiper>
               <h4>카테고리1</h4>
               <Swiper
@@ -108,10 +108,10 @@ const DogSupplies = memo(() => {
                 slidesPerGroup={1}
                 className="mySwiper"
               >
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
               </Swiper>
               <h4>카테고리2</h4>
               <Swiper
@@ -120,10 +120,10 @@ const DogSupplies = memo(() => {
                 slidesPerGroup={1}
                 className="mySwiper"
               >
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
               </Swiper>
               <h4>카테고리3</h4>
               <Swiper
@@ -132,10 +132,10 @@ const DogSupplies = memo(() => {
                 slidesPerGroup={1}
                 className="mySwiper"
               >
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><Goods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
+                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
               </Swiper>
             </div>
           )

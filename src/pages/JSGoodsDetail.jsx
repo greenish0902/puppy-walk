@@ -4,7 +4,7 @@
  * @author 신지섭(pon0304616@gmail.com)
  */
 import React, { memo } from 'react';
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
 import JMFooter from "../components/JMFooter";
@@ -89,8 +89,9 @@ const GoodsDetailBox = styled.div`
 
 `
 const GoodsDetail = memo(() => {
+  const navigate = useNavigate();
   //제품의 제목 가격 받아오기
-  const {src, title, price} = useParams();
+  const {title, price} = useParams();
   // 제품 수량 카운트
   const [count, setCount] = React.useState(1);
   // 제품 수량 - 이벤트
@@ -104,6 +105,9 @@ const GoodsDetail = memo(() => {
   const onClickPlus = React.useCallback((e) => {
     setCount(count+ 1)
   },[setCount, count]);
+  const onClickCart = React.useCallback(() => {
+    navigate(`/cart/${title}/${count}/${price}`)
+  },[navigate, title, count, price])
   // 상세정보, 후기, 제품문의
   const [tab, setTab] = React.useState("detail");
   const onClickDetail = React.useCallback((e) => {
@@ -130,7 +134,7 @@ const GoodsDetail = memo(() => {
         <span>{count}</span>
         <button className='plusMinusButton' onClick={onClickPlus} type="button">+</button>
         <div className="buttonBox">
-          <button className="cart" type="button">장바구니 담기</button>
+          <button onClick={onClickCart} className="cart" type="button">장바구니 담기</button>
           <button className="pay" type="button">바로 결제</button>
         </div>
         <div className="contentContainer">

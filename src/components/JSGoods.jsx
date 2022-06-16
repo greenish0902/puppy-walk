@@ -1,3 +1,8 @@
+/**
+ * @filename JSGoods.jsx
+ * @description 애견용품 상품
+ * @author 신지섭(pon0304616@gmail.com)
+ */
 import React, { memo } from 'react';
 import styled from 'styled-components'
 
