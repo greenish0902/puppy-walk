@@ -15,10 +15,10 @@ import './assets/scss/palette.scss'; // import root color settings
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Reset />
+    <GlobalStyle />
+    <Meta />
     <BrowserRouter>
-      <Reset />
-      <GlobalStyle />
-      <Meta />
       <App />
     </BrowserRouter>
   </React.StrictMode>,
