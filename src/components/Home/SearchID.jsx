@@ -1,3 +1,9 @@
+/**
+ * @filename SearchID.jsx
+ * @description 아이디 찾기 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";

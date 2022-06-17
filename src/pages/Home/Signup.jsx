@@ -1,5 +1,11 @@
+/**
+ * @filename Signup.jsx
+ * @description 회원가입 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from "react";
-import { NavLink, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import FrameWrapper from "../../components/Wrappers/FrameWrapper";

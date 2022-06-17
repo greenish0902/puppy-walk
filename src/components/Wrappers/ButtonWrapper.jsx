@@ -1,3 +1,9 @@
+/**
+ * @filename ButtonWrapper.jsx
+ * @description 공통 버튼 styled component
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import { memo } from "react";
 import styled from "styled-components";
 

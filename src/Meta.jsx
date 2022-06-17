@@ -1,3 +1,9 @@
+/**
+ * @filename Meat.jsx
+ * @description SEO
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { memo } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 

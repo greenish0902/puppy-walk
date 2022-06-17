@@ -1,3 +1,9 @@
+/**
+ * @filename UserProfile.jsx
+ * @description 사용자 프로필 정보 입력 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from "react";
 import styled from "styled-components";
 import { Link, Routes, Route } from "react-router-dom";

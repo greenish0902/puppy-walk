@@ -1,3 +1,9 @@
+/**
+ * @filename Home.jsx
+ * @description 첫 접속시 연결되는 앱의 Home 화면
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";

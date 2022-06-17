@@ -1,3 +1,9 @@
+/**
+ * @filename Search.jsx
+ * @description 아이디/비밀번호 찾기 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from "react";
 import styled from "styled-components";
 import { NavLink, Routes, Route } from "react-router-dom";
