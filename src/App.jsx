@@ -25,8 +25,6 @@ const App = () => {
 
   return (
     <AppContainer>
-      <Header>산책하개</Header>
-      <Footer />
       <Routes>
         <Route>
           <Route exact path="/" element={first ? <Home /> : <Main />} />
