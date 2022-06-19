@@ -46,6 +46,7 @@ const NavBarContainer = styled.div`
   transition: width 0.2s;
   overflow: hidden;
   padding-bottom: 55px;
+  z-index: 99999999;
 
   ul {
     &:first-child {
