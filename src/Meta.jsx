@@ -1,9 +1,9 @@
-import React, { memo } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import React, { memo } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import dog from "./assets/img/dog.png";
+import dog from './assets/img/dog.png';
 
-const Meta = memo((props) => {
+const Meta = memo(props => {
   return (
     <HelmetProvider>
       <Helmet>
@@ -25,10 +25,10 @@ const Meta = memo((props) => {
 });
 
 Meta.defaultProps = {
-  title: "산책하개",
-  description: "반려동물 산책메이트 SNS",
-  keyword: "puppy, walk",
-  author: "team hello-puppy",
+  title: '산책하개',
+  description: '반려동물 산책메이트 SNS',
+  keyword: 'puppy, walk',
+  author: 'team hello-puppy',
   image: dog,
   url: window.location.href,
 };
