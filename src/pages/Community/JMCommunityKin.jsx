@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useAxios from 'axios-hooks';
-import sample from "../../assets/img/dog.png";
+import sample from '../../assets/img/dog.png';
 
-const CommunityGeneralContainer = styled.div`
+const CommunityKinContainer = styled.div`
   padding-top: 45px;
   //background-color: green;
 
@@ -38,7 +38,10 @@ const CommunityGeneralContainer = styled.div`
 
   .sort {
     display: flex;
-    position: relative;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 40px;
+    background-color: #eee;
 
     select {
       border: none;
@@ -109,73 +112,132 @@ const CommunityGeneralContainer = styled.div`
     &:after {
       display: block;
     }
-`
+  }
+  .write {
+    position: relative;
+    bottom: 34px;
+    right: -290px;
+    background-color: var(--color-green-gray-2);
+    opacity: 0.8;
+    width: 60px;
+    height: 25px;
+    border-radius: 5px;
+    cursor: pointer;
 
-const CommunityGeneral = () => {
+    a {
+      text-decoration: none;
+      color: black;
+    }
 
-    const [{data,loading,error}, refetch] = useAxios('http://localhost:3001/post');
+    p {
+      font-size: 0.8em;
+      text-align: center;
+      line-height: 25px;
+    }
+  }
 
-    return (
-        <CommunityGeneralContainer>
-            <div className='board-nav'>
-                <NavLink to='/community/general'>자유게시판</NavLink>
-                <NavLink to='/community/kin'>지식in</NavLink>
-                <NavLink to='/community/course_recommend'>산책코스추천</NavLink>
-            </div>
-            <hr/>
-            <div className='tab-nav'>
-                <p>전체보기</p>
-                <p>강아지자랑</p>
-                <p>낙서글</p>
-                <p>산책후기</p>
-                <p>토론</p>
-                <p>정보글</p>
-            </div>
-            <hr/>
-            <div className='sort'>
-                <select>
-                    <option value=''>게시물 수</option>
-                    <option value='10'>10개</option>
-                    <option value='20'>20개</option>
-                    <option value='30'>30개</option>
-                    <option value='40'>40개</option>
-                    <option value='50'>50개</option>
-                </select>
-                <select>
-                    <option value=''>작성시간순</option>
-                    <option value='good'>좋아요 많은 순</option>
-                    <option value='comment'>댓글 많은 순</option>
-                </select>
-                <div>
-                    <input type='text'/>
-                    <FontAwesomeIcon icon={faMagnifyingGlass}/>
+  .page {
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    padding: 10px 0;
+
+    p {
+      cursor: pointer;
+      display: block;
+      background-color: var(--color-gray);
+      padding: 0 5px;
+      text-align: center;
+      margin: 0 2px;
+      font-size: 0.8em;
+      //margin: auto;
+    }
+  }
+`;
+
+const CommunityKin = () => {
+  const [{ data, loading, error }, refetch] = useAxios(
+    'http://localhost:3001/post',
+  );
+
+  return (
+    <CommunityKinContainer>
+      <div className="board-nav">
+        <NavLink to="/community/general">자유게시판</NavLink>
+        <NavLink to="/community/kin">지식in</NavLink>
+        <NavLink to="/community/course_recommend">산책코스추천</NavLink>
+      </div>
+      <hr />
+      <div className="tab-nav">
+        <p>전체보기</p>
+        <p>강아지자랑</p>
+        <p>낙서글</p>
+        <p>산책후기</p>
+        <p>토론</p>
+        <p>정보글</p>
+      </div>
+      <hr />
+      <div className="sort">
+        <select>
+          <option value="">게시물 수</option>
+          <option value="10">10개</option>
+          <option value="20">20개</option>
+          <option value="30">30개</option>
+          <option value="40">40개</option>
+          <option value="50">50개</option>
+        </select>
+        <select>
+          <option value="">작성시간순</option>
+          <option value="good">좋아요 많은 순</option>
+          <option value="comment">댓글 많은 순</option>
+        </select>
+        <div>
+          <input type="text" />
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
+        </div>
+      </div>
+      <hr />
+      <div>
+        {data &&
+          data.map((v, i) => {
+            return (
+              <>
+                <div className="listWrapper" key={i}>
+                  <div className="imgWrapper">
+                    <img src={sample} alt="sample" />
+                  </div>
+                  <div className="textWrapper">
+                    <p className="title">{v.title}</p>
+                    <p className="info">
+                      {v.tag ? v.tag + ' | ' : null}
+                      {v.location ? v.location + ' | ' : null}
+                      {v.authorNickname ? v.authorNickname + ' | ' : null}
+                      {v.date ? v.date : null}
+                    </p>
+                  </div>
                 </div>
-            </div>
-            <hr/>
-            <div>
-                {data && data.map((v, i) => {
-                    return (
-                        <>
-                            <div className='listWrapper' key={i}>
-                                <div className='imgWrapper'><img src={sample} alt='sample'/></div>
-                                <div className='textWrapper'>
-                                    <p className='title'>{v.title}</p>
-                                    <p className='info'>
-                                        {v.tag ? v.tag + ' | ' : null}
-                                        {v.location ? v.location + ' | ' : null}
-                                        {v.authorNickname ? v.authorNickname + ' | ' : null}
-                                        {v.date ? v.date : null}
-                                    </p>
-                                </div>
-                            </div>
-                            <hr />
-                        </>
-                    )
-                })}
-            </div>
+                <hr />
+              </>
+            );
+          })}
+      </div>
+      <div className="page">
+        <p>&lt;</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+        <p>&gt;</p>
+      </div>
 
-        </CommunityGeneralContainer>
-    );
+      <div className="write">
+        <NavLink to="/post">
+          <p>글쓰기</p>
+        </NavLink>
+      </div>
+    </CommunityKinContainer>
+  );
 };
 
-export default CommunityGeneral;
+export default CommunityKin;
