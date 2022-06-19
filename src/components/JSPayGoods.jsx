@@ -1,3 +1,8 @@
+/**
+ * @filename JSPayGoods.jsx
+ * @description 주문/결제 및 구매내역 상세보기에 사용되는 상품
+ * @author 신지섭(pon0304616@gmail.com)
+ */
 import React, { memo } from 'react';
 import styled from 'styled-components'
 

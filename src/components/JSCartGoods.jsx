@@ -56,13 +56,13 @@ const CartGoods = memo(({src, count, title, price}) => {
     <CartGoodsBox href={`/cart/${title}/${count}/${price}`}>
       <form>
         <input type="checkbox"/>
+        <img src={src} alt={title}/>
+        <div className="pBox">
+          <p>{title}</p>
+          <p>{count}</p>
+          <p>{price}</p>
+        </div>
       </form>
-      <img src={src} alt={title}/>
-      <div className="pBox">
-        <p>{title}</p>
-        <p>{count}</p>
-        <p>{price}</p>
-      </div>
       <button type="button">X</button>
     </CartGoodsBox>
   );
