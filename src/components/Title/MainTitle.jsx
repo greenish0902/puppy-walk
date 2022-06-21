@@ -4,24 +4,23 @@ import styled from 'styled-components';
 
 import pawprint from '../../assets/img/pawprint.png';
 
-const TitleWrapper = styled.h1`
-  text-align: center;
-  font-weight: bold;
+const MainTitleWrapper = styled.h4`
+  font-weight: 600;
   .logo.small {
-    margin-left: 12px;
-    width: 32px;
+    margin-left: 8px;
+    width: 20px;
   }
 `;
 
-const Title = () => {
+const MainTitle = ({ path, children }) => {
   return (
-    <Link to="/">
-      <TitleWrapper>
-        산책하개
+    <Link to={path}>
+      <MainTitleWrapper>
+        {children}
         <img src={pawprint} alt="pawprint" className="logo small" />
-      </TitleWrapper>
+      </MainTitleWrapper>
     </Link>
   );
 };
 
-export default Title;
+export default MainTitle;

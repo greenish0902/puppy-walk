@@ -1,5 +1,5 @@
-import { memo } from "react";
-import styled from "styled-components";
+import { memo } from 'react';
+import styled from 'styled-components';
 
 const FrameWrapper = memo(styled.div`
   padding: 36px;

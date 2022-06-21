@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, Routes, Route } from 'react-router-dom';
 
-import SubTitle from "../Title/SubTitle";
-import InputBox from "../Home/InputBox";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
+import SubTitle from '../Title/SubTitle';
+import InputBox from '../Home/InputBox';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
 
 const PetProfileContainer = styled(HomeWrapper)`
   .profileImg {
@@ -26,8 +26,8 @@ const PetProfileContainer = styled(HomeWrapper)`
       outline: none;
       line-height: 1.5;
       font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
-        Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-        "Noto Sans KR", "Malgun Gothic", sans-serif;
+        Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+        'Noto Sans KR', 'Malgun Gothic', sans-serif;
     }
   }
 `;

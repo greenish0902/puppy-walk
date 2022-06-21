@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import SubTitle from "../Title/SubTitle";
-import InputBox from "../Home/InputBox";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
+import SubTitle from '../Title/SubTitle';
+import InputBox from '../Home/InputBox';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
 
 const PetInfoContainer = styled(HomeWrapper)`
   .row {
