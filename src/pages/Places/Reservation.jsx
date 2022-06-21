@@ -12,7 +12,6 @@ import FrameWrapper from '../../components/Wrappers/FrameWrapper';
 import ListItem from '../../components/Places/ListItem';
 import Form from '../../components/Places/ResvForm';
 import Payment from '../../components/Places/ResvPayment';
-import PlaceFooter from '../../components/Places/PlaceFooter';
 import BottomBox from '../../components/Size/BottomBox';
 
 const ReservationContainer = styled(FrameWrapper)`
@@ -62,15 +61,12 @@ const Reservation = () => {
           </NavLink>
         </div>
         <Routes>
-          <Route path="" element={<Form data={data} id={id} />} />
-          <Route path="payment" element={<Payment />} />
+          <Route path="" element={<Form id={id} data={data} />} />
+          <Route
+            path="payment"
+            element={<Payment id={id} price={data.price} />}
+          />
         </Routes>
-        <PlaceFooter
-          price={data.price}
-          id={data.id}
-          btnStr="결제하기"
-          to="payment"
-        />
         <BottomBox size="72px" />
       </ReservationContainer>
     )

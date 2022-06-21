@@ -6,7 +6,7 @@ import DatePicker from 'react-datepicker';
 import MainSubTitle from '../Title/MainSubTitle';
 import OptionItem from './OptionItem';
 import InputBox from '../Home/InputBox';
-// import PlaceFooter from './PlaceFooter';
+import PlaceFooter from './PlaceFooter';
 // import BottomBox from '../Size/BottomBox';
 
 import { FaAngleDoubleLeft } from 'react-icons/fa';
@@ -62,6 +62,12 @@ const ResvForm = ({ data, id }) => {
           <InputBox label="전화번호" name="contact" />
           <InputBox label="이메일" name="email" />
         </div>
+        <PlaceFooter
+          price={data.price}
+          id={data.id}
+          btnStr="결제하기"
+          to="payment"
+        />
       </ResvFormContainer>
     )
   );

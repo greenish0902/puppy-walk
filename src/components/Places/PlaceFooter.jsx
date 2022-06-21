@@ -7,6 +7,7 @@ import Price from './Price';
 
 const PlaceFooterContainer = styled.footer`
   position: fixed;
+  left: 0;
   bottom: 0;
   padding: 8px 24px;
   width: 100%;
@@ -17,15 +18,26 @@ const PlaceFooterContainer = styled.footer`
   box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.2);
 `;
 
-const PlaceFooter = ({ price, to, btnStr = '예약하러 가기' }) => {
+const PlaceFooter = ({ price, to, btnStr = '예약하러 가기', handleClick }) => {
   return (
     <PlaceFooterContainer>
-      <Price price={price} />
-      <NavLink to={to}>
-        <ButtonWrapper width="120px" color="white" bgColor="green-2">
+      {price ? <Price price={price} /> : <div />}
+      {to ? (
+        <NavLink to={to}>
+          <ButtonWrapper width="120px" color="white" bgColor="green-2">
+            {btnStr}
+          </ButtonWrapper>
+        </NavLink>
+      ) : (
+        <ButtonWrapper
+          width="120px"
+          color="white"
+          bgColor="green-2"
+          onClick={handleClick}
+        >
           {btnStr}
         </ButtonWrapper>
-      </NavLink>
+      )}
     </PlaceFooterContainer>
   );
 };
