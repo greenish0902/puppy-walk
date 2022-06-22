@@ -202,6 +202,55 @@ const MyPostBox = styled.div`
     }
   }
 `
+const DimBox = styled.div`
+  height: 800px;
+  width: 360px;
+  background: rgba(0,0,0, 0.5);
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+  .moveBtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 320px;
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    
+    .container {
+      margin-top: 50px;
+    }
+    p {
+      margin-bottom: 30px;
+    }
+    button {
+      width: 100px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.1s ease-in-out;
+      }
+    }
+    .yBtn {
+      background: red;
+      margin-right: 20px;
+    }
+    .nBtn {
+      background: rgba(127, 127, 127, 0.5);
+    }
+  }
+`
 
 const JSMyPost = memo(() => {
   const [state, setState] = React.useState('내 게시글')
@@ -215,9 +264,26 @@ const JSMyPost = memo(() => {
     setType(e.target.dataset.icon)
     console.log(e.target.dataset.name)
   },[setType])
+
+  const [dim, setDim] = React.useState('none');
+  const onClickN = React.useCallback(() => {
+    setDim('none')
+  },[setDim])
+  const onClickY = React.useCallback(() => {
+    setDim('block')
+  },[setDim])
   return (
     <>
       <JMHeader>내 게시글</JMHeader>
+      <DimBox style={{display:`${dim}`}}>
+        <div className="moveBtn">
+          <div className="container">
+            <p>게시물을 <strong>삭제</strong>하시겠습니까?</p>
+            <button className="yBtn" type="button">네</button>
+            <button onClick={onClickN} className="nBtn" type="button">아니요</button>
+          </div>
+        </div>
+      </DimBox>
       <MyPostBox>
         <div className="chose">
           <span className={state === "내 게시글" ? 'active' : null} onClick={onClick}>내 게시글</span>
@@ -269,7 +335,7 @@ const JSMyPost = memo(() => {
                   tag  |  location  |  authorNickname  |  date
                 </p>
               </div>
-              <button type="button">삭제하기</button>
+              <button onClick={onClickY} type="button">삭제하기</button>
             </div>
             <hr />
           </div>
@@ -282,10 +348,10 @@ const JSMyPost = memo(() => {
                 <div className='textBox'>
                   <p className="title">title</p>
                   <p className="info">
-                    tag | location | author | date
+                    {"tag"} | {"location"} | {"author"} | {"date"}
                   </p>
                 </div>
-                <button className="deleteBtn" type="button">삭제하기</button>
+                <button onClick={onClickY} className="deleteBtn" type="button">삭제하기</button>
               </div>
             </div>
           )) : (
@@ -303,7 +369,7 @@ const JSMyPost = memo(() => {
                 <div className="commentWrapper">
                   <p>내 댓글: {"댓글 남기고 갑니다~"}</p>
                 </div>
-                <button className="commentDeleteBtn" type="button">삭제하기</button>
+                <button onClick={onClickY} className="commentDeleteBtn" type="button">삭제하기</button>
               </div>
               <hr />
             </div>

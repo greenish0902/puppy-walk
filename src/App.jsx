@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/purchase" element={<JSMyPurchasePage/>}/>
         <Route path="/purchaselist" element={<JSMyPurchaseList/>}/>
         <Route path="/purchasedetail/:date" element={<JSPurchaseDetail/>}/>
-        <Route path="/post" element={<JSMyPost/>}/>
+        <Route path="/minihome/post" element={<JSMyPost/>}/>
       </Routes>
     </>
   );

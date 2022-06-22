@@ -115,8 +115,9 @@ const JSMiniHome = memo(() => {
     navigate('/purchase')
   },[navigate])
   const onClickPost = React.useCallback(() => {
-    navigate('/post')
+    navigate('/minihome/post')
   },[navigate])
+
   return (
     <>
       <JMHeader>내 미니홈피</JMHeader>

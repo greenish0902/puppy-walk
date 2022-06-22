@@ -143,6 +143,12 @@ const JSMyPage = memo(() => {
   const onClickMini = React.useCallback(() => {
     navigate('/minihome')
   },[navigate])
+  const onClickPurchase = React.useCallback(() => {
+    navigate('/purchase')
+  },[navigate])
+  const onClickReservation = React.useCallback(() => {
+    navigate('/reservation/:id/*')
+  },[navigate])
   return (
     <>
       <JMHeader>마이페이지</JMHeader>
@@ -159,18 +165,18 @@ const JSMyPage = memo(() => {
             <button className='setBtn' type="button">⚙</button>
           </div>
         </div>
-        <div onClick={onClickMini} className='myHome'>
+        <div className='myHome'>
           <p className="title">My Home</p>
           <hr/>
-          <div className='homeBox'>
+          <div onClick={onClickMini} className='homeBox'>
             <p>내 미니홈피</p>
             <p>&gt;</p>
           </div>
-          <div className='homeBox'>
+          <div onClick={onClickPurchase} className='homeBox'>
             <p>내 구매</p>
             <p>&gt;</p>
           </div>
-          <div className='homeBox'>
+          <div onClick={onClickReservation} className='homeBox'>
             <p>내 예약</p>
             <p>&gt;</p>
           </div>
