@@ -7,9 +7,9 @@ import React, { memo } from 'react';
 import {useParams, useNavigate} from "react-router-dom";
 import styled from "styled-components";
 
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
-import img from '../assets/img/dog.png';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
+import img from '../../assets/img/dog.png';
 const GoodsDetailBox = styled.div`
   width: 360px;
   margin: 40px auto 55px auto;
@@ -89,7 +89,7 @@ const GoodsDetailBox = styled.div`
 
 `
 const DimBox = styled.div`
-  height: 800px;
+  height: 940px;
   width: 360px;
   background: rgba(0,0,0, 0.5);
   top: 40px;
@@ -185,7 +185,7 @@ const GoodsDetail = memo(() => {
   },[setDim])
   const onClickY = React.useCallback(() => {
     setDim('block')
-  })
+  },[setDim])
   return (
     <>
       <JMHeader>{title}</JMHeader>

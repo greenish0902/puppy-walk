@@ -1,10 +1,10 @@
 import React from 'react';
 import {Routes, Route} from "react-router-dom"
-import JSCart from './components/JSCart';
-import DogSupplies from './pages/DogSupplies';
-import JSGoodsDetail from './pages/JSGoodsDetail';
-import JSPayment from './pages/JSPayment';
-import JSPayResult from './pages/JSPayResult';
+import JSCart from './components/Cart/JSCart';
+import DogSupplies from './pages/DogSupplies/DogSupplies';
+import JSGoodsDetail from './pages/DogSupplies/JSGoodsDetail';
+import JSPayment from './pages/DogSupplies/JSPayment';
+import JSPayResult from './pages/DogSupplies/JSPayResult';
 const App = () => {
   return (
     <>

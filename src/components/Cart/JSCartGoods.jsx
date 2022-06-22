@@ -51,7 +51,7 @@ const CartGoodsBox = styled.li`
   }
 `
 
-const CartGoods = memo(({ src, count, title, price}) => {
+const CartGoods = memo(({onClick, src, count, title, price}) => {
   return (
     <CartGoodsBox href={`/cart/${title}/${count}/${price}`}>
       <form>
@@ -62,7 +62,7 @@ const CartGoods = memo(({ src, count, title, price}) => {
           <p>{count}</p>
           <p>{price}</p>
         </div>
-        <button type="button">X</button>
+        <button onClick={onClick} type="button">X</button>
       </form>
     </CartGoodsBox>
   );

@@ -7,9 +7,9 @@ import React, { memo } from 'react';
 import styled from "styled-components"
 import { useNavigate } from 'react-router-dom';
 
-import JSPayGoods from '../components/JSPayGoods';
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
+import JSPayGoods from '../../components/Pay/JSPayGoods';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
 const PaymentBox = styled.div`
   width: 360px;
   height: 600px;

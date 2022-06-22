@@ -7,11 +7,11 @@ import React, { memo, useEffect } from 'react';
 import styled from "styled-components";
 import {useParams} from "react-router-dom";
 
-import MenuLink from '../components/MenuLink';
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
-import JSGoods from '../components/JSGoods';
-import img from '../assets/img/dog.png';
+import MenuLink from '../../components/DogSupplies/MenuLink';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
+import JSGoods from '../../components/DogSupplies/JSGoods';
+import img from '../../assets/img/dog.png';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
