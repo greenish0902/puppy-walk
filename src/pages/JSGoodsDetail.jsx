@@ -81,12 +81,65 @@ const GoodsDetailBox = styled.div`
       &:hover {
         background: #999999;
       }
-      &:focus {
-        background: #999999;
-      }
+    }
+    .active {
+      background: #999999;
     }
   }
 
+`
+const DimBox = styled.div`
+  height: 800px;
+  width: 360px;
+  background: rgba(0,0,0, 0.5);
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 2;
+
+  .moveBtn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    width: 320px;
+    background: white;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    
+    .container {
+      margin-top: 50px;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    button {
+      width: 100px;
+      height: 40px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: all 0.1s ease-in-out;
+      }
+    }
+
+    .yBtn {
+      background: #01B257;
+      margin-right: 20px;
+    }
+
+    .nBtn {
+      background: red;
+    }
+  }
 `
 const GoodsDetail = memo(() => {
   const navigate = useNavigate();
@@ -113,15 +166,38 @@ const GoodsDetail = memo(() => {
   const onClickDetail = React.useCallback((e) => {
     setTab("detail")
   },[setTab]);
+
   const onClickReview = React.useCallback((e) => {
     setTab("review")
   },[setTab]);
+
   const onClickInquiry = React.useCallback((e) => {
     setTab("inquiry")
   },[setTab]);
+
+  const onClickPay = React.useCallback(() => {
+    navigate('/payment')
+  },[navigate]);
+
+  const [dim, setDim] = React.useState('none');
+  const onClickN = React.useCallback(() => {
+    setDim('none')
+  },[setDim])
+  const onClickY = React.useCallback(() => {
+    setDim('block')
+  })
   return (
     <>
       <JMHeader>{title}</JMHeader>
+      <DimBox style={{display:`${dim}`}}>
+        <div className="moveBtn">
+          <div className="container">
+            <p>장바구니로 이동하시겠습니까?</p>
+            <button onClick={onClickCart} className="yBtn" type="button">네</button>
+            <button onClick={onClickN} className="nBtn" type="button">아니요</button>
+          </div>
+        </div>
+      </DimBox>
       <GoodsDetailBox>
         <img src={img} alt={title}/>
         <p>{title}</p>
@@ -134,13 +210,13 @@ const GoodsDetail = memo(() => {
         <span>{count}</span>
         <button className='plusMinusButton' onClick={onClickPlus} type="button">+</button>
         <div className="buttonBox">
-          <button onClick={onClickCart} className="cart" type="button">장바구니 담기</button>
-          <button className="pay" type="button">바로 결제</button>
+          <button onClick={onClickY} className="cart" type="button">장바구니 담기</button>
+          <button onClick={onClickPay} className="pay" type="button">바로 결제</button>
         </div>
         <div className="contentContainer">
-          <button onClick={onClickDetail} type="button">상세정보</button>
-          <button onClick={onClickReview} type="button">후기</button>
-          <button onClick={onClickInquiry} type="button">제품문의</button>
+          <button className={tab==="detail" ? "active" : null} onClick={onClickDetail} type="button">상세정보</button>
+          <button className={tab==="review" ? "active" : null} onClick={onClickReview} type="button">후기</button>
+          <button className={tab==="inquiry" ? "active" : null} onClick={onClickInquiry} type="button">제품문의</button>
         </div>
         <div className="content">
           {

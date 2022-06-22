@@ -66,10 +66,10 @@ const Cart = memo(() => {
     navigate("/")
   },[navigate])
   React.useEffect(() => {
-    if (count) {
+    if (count && title && price) {
       setItem(true)
     }
-  },[count])
+  },[count, title, price]);
   return (
     <>
       <JMHeader>장바구니</JMHeader>
@@ -79,7 +79,7 @@ const Cart = memo(() => {
             <div>
               <button className="deleteBtn" type="button">선택 삭제</button>
               <ul>
-                <JSCartGoods test={test} src={img} title={title} count={count} price={price}/>
+                <JSCartGoods src={img} title={title} count={count} price={price}/>
               </ul>
               <div className="amount">
                 <p>{price}원 &nbsp;&nbsp; + &nbsp;&nbsp; 배송비 = &nbsp;&nbsp; 총 금액</p>
