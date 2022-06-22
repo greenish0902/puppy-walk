@@ -22,6 +22,7 @@ const MyPostBox = styled.div`
     height: 50px;
     width: 360px;
     position: relative;
+
     span {
       display: inline-block;
       color: rgba(127, 127, 127, 0.5);
@@ -32,6 +33,7 @@ const MyPostBox = styled.div`
       margin-top: 5px;
       cursor: pointer;
     }
+
     .active {
       color: black;
     }
@@ -40,11 +42,22 @@ const MyPostBox = styled.div`
       position: absolute;
       top: 0;
       right: 0;
+
       span {
         color: rgb(127, 127, 127, 0.5);
         font-size: 16px;
         cursor: pointer;
       }
+
+      svg {
+        display: block;
+        position: relative;
+        top: 8px;
+        z-index: 2;
+        height: 30px;
+        width: 30px;
+      }
+
       .active {
         color: black;
       }
@@ -69,14 +82,17 @@ const MyPostBox = styled.div`
       -moz-appearance: none; /* 화살표 없애기 for firefox*/
       appearance: none;
     }
+
     div {
       position: absolute;
       right: 10px;
       top: -2px;
+
       input {
         width: 80px;
         height: 13px;
       }
+
       svg {
         width: 13%;
         position: relative;
@@ -85,6 +101,7 @@ const MyPostBox = styled.div`
       }
     }
  }
+
  .listWrapper {
     width: 340px;
     margin: auto;
@@ -97,6 +114,7 @@ const MyPostBox = styled.div`
       margin: 5px 10px;
       background-color: var(--color-gray);
       float: left;
+
       img {
         width: 100%;
       }
@@ -162,6 +180,7 @@ const MyPostBox = styled.div`
     width: 150px;
     margin: 15px;
     display: inline-block;
+
     .imgBox {
       width: 150px;
       height: 150px;
@@ -203,14 +222,14 @@ const MyPostBox = styled.div`
   }
 `
 const DimBox = styled.div`
-  height: 800px;
+  height: 940px;
   width: 360px;
   background: rgba(0,0,0, 0.5);
   top: 40px;
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  z-index: 2;
+  z-index: 100;
   .moveBtn{
     position: absolute;
     top: 50%;
@@ -258,20 +277,22 @@ const JSMyPost = memo(() => {
   const onClick = React.useCallback((e) => {
     const current = e.target;
     setState(current.innerHTML)
-  },[setState])
+  },[setState]);
 
   const onClickType = React.useCallback((e) => {
-    setType(e.target.dataset.icon)
-    console.log(e.target.dataset.name)
-  },[setType])
+    const current = e.target.dataset
+    if (current.icon) {
+      setType(current.icon)
+    }
+  },[setType]);
 
   const [dim, setDim] = React.useState('none');
   const onClickN = React.useCallback(() => {
     setDim('none')
-  },[setDim])
+  },[setDim]);
   const onClickY = React.useCallback(() => {
     setDim('block')
-  },[setDim])
+  },[setDim]);
   return (
     <>
       <JMHeader>내 게시글</JMHeader>
@@ -291,11 +312,11 @@ const JSMyPost = memo(() => {
           {
             state === "내 게시글" ? (
               <div className="imgorpost">
-                <span className={type === "image" ? "active" : null} onClick={onClickType}>
+                <span className={type === "image"? "active" : null} data-icon="image" onClick={onClickType}>
                   <FontAwesomeIcon icon={faImage} size="xl" />
                 </span>
-                <span className={type === "bars" ? "active" : null} onClick={onClickType}>
-                  <FontAwesomeIcon icon={faBars} size="xl" />
+                <span className={type === "bars"? "active" : null} data-icon="bars" onClick={onClickType}>
+                  <FontAwesomeIcon icon={faBars} size="xl"/>
                 </span>
               </div>
             ) : null
