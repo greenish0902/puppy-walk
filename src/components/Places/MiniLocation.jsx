@@ -1,3 +1,9 @@
+/**
+ * @filename MiniLocation.jsx
+ * @description 위치 UI 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import { memo } from 'react';
 import styled from 'styled-components';
 import { MdPlace } from 'react-icons/md';
@@ -9,7 +15,7 @@ const LocationContainer = memo(styled.span`
   color: var(--color-text-gray);
 `);
 
-const Location = memo(({ loc }) => {
+const MiniLocation = memo(({ loc }) => {
   return (
     <LocationContainer>
       <MdPlace />
@@ -18,4 +24,4 @@ const Location = memo(({ loc }) => {
   );
 });
 
-export default Location;
+export default MiniLocation;

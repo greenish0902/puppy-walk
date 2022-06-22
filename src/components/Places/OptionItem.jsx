@@ -1,3 +1,9 @@
+/**
+ * @filename OptionItem.jsx
+ * @description 옵션 정보 및 선택 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { memo, useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineMinusSquare, AiOutlinePlusSquare } from 'react-icons/ai';

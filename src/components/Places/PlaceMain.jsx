@@ -1,17 +1,20 @@
+/**
+ * @filename PlaceMain.jsx
+ * @description 장소 상세정보 전체 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink, Routes, Route } from 'react-router-dom';
 
 import { FaAngleDoubleLeft, FaRegHeart, FaHeart } from 'react-icons/fa';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { FaSearch } from 'react-icons/fa';
-// import { MdPlace } from 'react-icons/md';
 
 import TopNavWrapper from '../Wrappers/TopNavWrapper';
 import BottomBox from '../Size/BottomBox';
 import Stars from '../Common/Stars';
-import Location from './Location';
-import CateWord from './CateWord';
+import Location from './MiniLocation';
+import CateWord from './MiniCateWord';
 import Details from './Details';
 import Options from './Options';
 import PlaceFooter from './PlaceFooter';

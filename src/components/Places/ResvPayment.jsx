@@ -1,3 +1,9 @@
+/**
+ * @filename ResvPayment.jsx
+ * @description 예약 결제
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';

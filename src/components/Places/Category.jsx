@@ -1,3 +1,9 @@
+/**
+ * @filename Category.jsx
+ * @description 전체 카테고리명 및 정렬 버튼 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';

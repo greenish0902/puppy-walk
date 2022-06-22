@@ -1,3 +1,9 @@
+/**
+ * @filename Details.jsx
+ * @description 장소 상세정보 상세 탭
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -10,8 +16,6 @@ const DetailsContainer = styled.div`
 `;
 
 const Details = ({ desc }) => {
-  // json strigify parse ?
-
   return (
     <DetailsContainer>
       <div className="descBox">{desc}</div>

@@ -1,3 +1,9 @@
+/**
+ * @filename CategoryItem.jsx
+ * @description 개별 카테고리 li 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 

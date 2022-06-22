@@ -1,3 +1,9 @@
+/**
+ * @filename Places.jsx
+ * @description 어디가개 탭의 첫 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
@@ -8,7 +14,7 @@ import Spinner from '../../components/Common/Spinner';
 import ErrorView from '../../components/Common/ErrorView';
 import MainTitle from '../../components/Title/MainTitle';
 import Category from '../../components/Places/Category';
-import PlaceList from '../../components/Places/PlaceList';
+import PlaceCards from '../../components/Places/PlaceCards';
 
 const PlacesContainer = styled.div`
   width: 100%;
@@ -66,7 +72,7 @@ const Places = () => {
         <input type="text" placeholder="장소를 검색해보세요!" />
         <FaSearch className="icon" />
       </div>
-      <PlaceList places={places} />
+      <PlaceCards places={places} />
       <Category categories={cate} places={places} />
     </PlacesContainer>
   );

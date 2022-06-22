@@ -1,3 +1,9 @@
+/**
+ * @filename Reservation.jsx
+ * @description 예약 페이지 홈
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { useState } from 'react';
 import useAxios from 'axios-hooks';
 import { NavLink, Routes, Route, useParams } from 'react-router-dom';

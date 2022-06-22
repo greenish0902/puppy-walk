@@ -1,11 +1,17 @@
+/**
+ * @filename ListItem.jsx
+ * @description 장소 리스트 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import { memo } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Stars from '../Common/Stars';
-import Price from '../Places/Price';
-import Location from '../Places/Location';
-import CateWord from '../Places/CateWord';
+import MiniPrice from './MiniPrice';
+import MiniLocation from './MiniLocation';
+import MiniCateWord from './MiniCateWord';
 
 const ListItemContainer = memo(styled.li`
   cursor: pointer;
@@ -58,14 +64,14 @@ const ListItem = memo(({ item }) => {
       <div className="desc">
         <div className="row">
           <span className="title">{title}</span>
-          <CateWord cate={cate} />
+          <MiniCateWord cate={cate} />
         </div>
         <div className="row">
-          <Location loc={loc} />
+          <MiniLocation loc={loc} />
         </div>
         <div className="row">
           <Stars score={score} total={total} className="stars" />
-          <Price price={price} />
+          <MiniPrice price={price} />
         </div>
       </div>
     </ListItemContainer>

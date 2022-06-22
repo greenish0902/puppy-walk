@@ -1,11 +1,17 @@
+/**
+ * @filename PlaceCard.jsx
+ * @description 장소 정보 카드형 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { BsBookmarkHeartFill } from 'react-icons/bs';
 
 import Stars from '../Common/Stars';
-import Price from './Price';
-import Location from './Location';
+import MiniPrice from './MiniPrice';
+import MiniLocation from './MiniLocation';
 
 const PlaceCardContainer = memo(styled.li`
   cursor: pointer;
@@ -60,7 +66,7 @@ const PlaceCardContainer = memo(styled.li`
   }
 `);
 
-const PlaceCard = ({ item }) => {
+const PlaceCard = memo(({ item }) => {
   const navigate = useNavigate();
   const { src, score, total, title, loc, price, love, id } = item;
   const handleClip = event => {
@@ -84,11 +90,11 @@ const PlaceCard = ({ item }) => {
       <Stars score={score} total={total} />
       <div className="desc">
         <p className="title">{title}</p>
-        <Location loc={loc} />
-        <Price price={price} />
+        <MiniLocation loc={loc} />
+        <MiniPrice price={price} />
       </div>
     </PlaceCardContainer>
   );
-};
+});
 
 export default PlaceCard;

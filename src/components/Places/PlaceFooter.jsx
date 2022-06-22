@@ -1,9 +1,15 @@
+/**
+ * @filename PlaceFooter.jsx
+ * @description 어디가개 탭 footer: 버튼 및 가격정보
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import ButtonWrapper from '../Wrappers/ButtonWrapper';
-import Price from './Price';
+import MiniPrice from './MiniPrice';
 
 const PlaceFooterContainer = styled.footer`
   position: fixed;
@@ -21,7 +27,7 @@ const PlaceFooterContainer = styled.footer`
 const PlaceFooter = ({ price, to, btnStr = '예약하러 가기', handleClick }) => {
   return (
     <PlaceFooterContainer>
-      {price ? <Price price={price} /> : <div />}
+      {price ? <MiniPrice price={price} /> : <div />}
       {to ? (
         <NavLink to={to}>
           <ButtonWrapper width="120px" color="white" bgColor="green-2">

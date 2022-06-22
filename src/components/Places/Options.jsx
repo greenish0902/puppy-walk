@@ -1,3 +1,9 @@
+/**
+ * @filename Options.jsx
+ * @description 옵션 전체 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 

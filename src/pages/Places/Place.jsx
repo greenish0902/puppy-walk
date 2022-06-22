@@ -1,3 +1,9 @@
+/**
+ * @filename Place.jsx
+ * @description 장소 상세정보 하위 컴포넌트 연결을 위한 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React from 'react';
 import useAxios from 'axios-hooks';
 import { NavLink, Routes, Route, useParams } from 'react-router-dom';

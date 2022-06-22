@@ -1,5 +1,10 @@
+/**
+ * @filename ResvForm.jsx
+ * @description 예약 정보 입력폼
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import React, { useState } from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import DatePicker from 'react-datepicker';
 
@@ -7,7 +12,6 @@ import MainSubTitle from '../Title/MainSubTitle';
 import OptionItem from './OptionItem';
 import InputBox from '../Home/InputBox';
 import PlaceFooter from './PlaceFooter';
-// import BottomBox from '../Size/BottomBox';
 
 import { FaAngleDoubleLeft } from 'react-icons/fa';
 

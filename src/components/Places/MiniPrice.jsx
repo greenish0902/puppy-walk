@@ -1,7 +1,13 @@
+/**
+ * @filename MiniPrice.jsx
+ * @description 가격정보 UI 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
+
 import { memo } from 'react';
 import styled from 'styled-components';
 
-const PriceContainer = memo(styled.span`
+const MiniPriceContainer = memo(styled.span`
   display: flex;
   align-items: center;
   span {
@@ -18,13 +24,13 @@ const PriceContainer = memo(styled.span`
   }
 `);
 
-const Price = memo(({ price }) => {
+const MiniPrice = memo(({ price }) => {
   return (
-    <PriceContainer>
+    <MiniPriceContainer>
       <span>₩ {parseInt(price).toLocaleString()}</span>
       <span className="small">/ 일</span>
-    </PriceContainer>
+    </MiniPriceContainer>
   );
 });
 
-export default Price;
+export default MiniPrice;
