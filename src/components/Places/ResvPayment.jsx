@@ -10,11 +10,14 @@ import Modal from '../Common/Modal';
 const ResvPaymentContainer = styled.section`
   width: 100%;
 
-  .cardnum {
-    display: flex;
-    justify-content: space-between;
-    input {
-      width: 66px;
+  .box {
+    .cardnum {
+      display: flex;
+      justify-content: space-between;
+
+      input {
+        width: 66px;
+      }
     }
   }
 `;

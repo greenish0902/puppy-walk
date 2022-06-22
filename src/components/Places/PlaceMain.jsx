@@ -7,16 +7,16 @@ import { FaAngleDoubleLeft, FaRegHeart, FaHeart } from 'react-icons/fa';
 // import { FaSearch } from 'react-icons/fa';
 // import { MdPlace } from 'react-icons/md';
 
-import TopNavWrapper from '../../Wrappers/TopNavWrapper';
-import BottomBox from '../../Size/BottomBox';
-import Stars from '../../Common/Stars';
-import Location from '../Location';
-import CateWord from '../CateWord';
-import Details from '../Details';
-import Options from '../Options';
-import PlaceFooter from '../PlaceFooter';
+import TopNavWrapper from '../Wrappers/TopNavWrapper';
+import BottomBox from '../Size/BottomBox';
+import Stars from '../Common/Stars';
+import Location from './Location';
+import CateWord from './CateWord';
+import Details from './Details';
+import Options from './Options';
+import PlaceFooter from './PlaceFooter';
 
-const PlaceDetailsContainer = styled.section`
+const PlaceMainContainer = styled.section`
   width: 100%;
 
   > img {
@@ -65,9 +65,9 @@ const PlaceDetailsContainer = styled.section`
   }
 `;
 
-const PlaceDetails = ({ data, id }) => {
+const PlaceMain = ({ data, id }) => {
   return (
-    <PlaceDetailsContainer>
+    <PlaceMainContainer>
       <div className="floating">
         <NavLink to="/places" className="iconBox left">
           <FaAngleDoubleLeft className="icon" />
@@ -102,8 +102,8 @@ const PlaceDetails = ({ data, id }) => {
         <BottomBox size="56px" />
       </div>
       <PlaceFooter price={data.price} id={data.id} to="resv" />
-    </PlaceDetailsContainer>
+    </PlaceMainContainer>
   );
 };
 
-export default PlaceDetails;
+export default PlaceMain;

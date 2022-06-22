@@ -17,7 +17,7 @@ import FrameWrapper from '../../components/Wrappers/FrameWrapper';
 // import Details from '../../components/Places/Details';
 // import Options from '../../components/Places/Options';
 // import PlaceFooter from '../../components/Places/PlaceFooter';
-import PlaceDetails from '../../components/Places/Place/PlaceDetails';
+import PlaceMain from '../../components/Places/PlaceMain';
 import Reservation from './Reservation';
 
 const PlaceContainer = styled(FrameWrapper)`
@@ -137,7 +137,7 @@ const Place = () => {
           </div>
         </section> */}
         <Routes>
-          <Route path="*" element={<PlaceDetails data={data} id={data.id} />} />
+          <Route path="*" element={<PlaceMain data={data} id={data.id} />} />
           <Route path="resv/*" element={<Reservation />} />
         </Routes>
         {/* <PlaceFooter
