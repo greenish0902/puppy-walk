@@ -5,7 +5,7 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import src from "../assets/img/dog.png"
+import src from "../../assets/img/dog.png"
 
 const DogProfileBox = styled.div`
   width: 360px;

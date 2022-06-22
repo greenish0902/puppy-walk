@@ -7,11 +7,11 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { faMagnifyingGlass, faImage, faBars} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "../assets/scss/palette.scss"
-import src from "../assets/img/dog.png"
+import "../../assets/scss/palette.scss"
+import src from "../../assets/img/dog.png"
 
-import JMFooter from '../components/JMFooter';
-import JMHeader from '../components/JMHeader'
+import JMFooter from '../../components/JMFooter';
+import JMHeader from '../../components/JMHeader'
 
 const MyPostBox = styled.div`
   padding-top: 40px;

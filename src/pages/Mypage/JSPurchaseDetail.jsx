@@ -7,9 +7,9 @@ import React, { memo } from 'react';
 import {useParams} from 'react-router-dom'
 import styled from "styled-components"
 
-import JSPayGoods from '../components/JSPayGoods';
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
+import JSPayGoods from '../../components/Purchase/JSPayGoods';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
 
 const PurchaseDetailBox = styled.div`
   height: 600px;

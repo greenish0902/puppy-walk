@@ -7,10 +7,10 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import JMFooter from "./JMFooter";
-import JMHeader from "./JMHeader";
+import JMFooter from "../JMFooter";
+import JMHeader from "../JMHeader";
 import JSCartGoods from './JSCartGoods';
-import img from '../assets/img/dog.png';
+import img from '../../assets/img/dog.png';
 
 
 const CartBox = styled.div`
@@ -24,6 +24,7 @@ const CartBox = styled.div`
     border-radius: 5px;
     height: 40px;
     width: 100px;
+    margin-top: 50px;
     margin-left: 250px;
     margin-bottom: 10px;
     cursor: pointer;

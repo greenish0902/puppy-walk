@@ -6,11 +6,11 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import src from "../assets/img/dog.png"
-import icon from "../assets/img/location.PNG"
+import src from "../../assets/img/dog.png"
+import icon from "../../assets/img/location.PNG"
 
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
 
 const MyPageBox = styled.div`
   height: 600px;

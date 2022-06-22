@@ -7,8 +7,8 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
 
 const MyPurchasePageBox = styled.div`
   width: 360px;

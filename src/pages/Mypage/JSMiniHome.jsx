@@ -6,14 +6,14 @@
 import React, { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import src from "../assets/img/dog.png"
+import src from "../../assets/img/dog.png"
 
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
-import JSCartImg from '../components/JSCartImg';
-import JSDogProfile from '../components/JSDogProfile';
-import JSPostBox from '../components/JSPostBox';
-import JSPurchaseBox from '../components/JSPurchaseBox';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
+import JSCartImg from '../../components/Minihome/JSCartImg';
+import JSDogProfile from '../../components/Minihome/JSDogProfile';
+import JSPostBox from '../../components/Minihome/JSPostBox';
+import JSPurchaseBox from '../../components/Minihome/JSPurchaseBox';
 
 const MiniHomeBox = styled.div`
   height: 600px;

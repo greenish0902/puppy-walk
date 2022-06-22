@@ -1,12 +1,12 @@
 import React from 'react';
 import {Routes, Route} from "react-router-dom"
-import JSCart from './components/JSCart';
-import JSMyPage from './pages/JSMyPage';
-import JSMiniHome from './pages/JSMiniHome';
-import JSMyPurchasePage from './pages/JSMyPurchasePage';
-import JSMyPurchaseList from './pages/JSMyPurchaseList';
-import JSPurchaseDetail from './pages/JSPurchaseDetail';
-import JSMyPost from './pages/JSMyPost';
+import JSCart from './components/Cart/JSCart';
+import JSMyPage from './pages/Mypage/JSMyPage';
+import JSMiniHome from './pages/Mypage/JSMiniHome';
+import JSMyPurchasePage from './pages/Mypage/JSMyPurchasePage';
+import JSMyPurchaseList from './pages/Mypage/JSMyPurchaseList';
+import JSPurchaseDetail from './pages/Mypage/JSPurchaseDetail';
+import JSMyPost from './pages/Mypage/JSMyPost';
 const App = () => {
   return (
     <>

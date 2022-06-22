@@ -5,11 +5,11 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import src from '../assets/img/dog.png'
+import src from '../../assets/img/dog.png'
 
-import JMFooter from "../components/JMFooter";
-import JMHeader from "../components/JMHeader";
-import JSPurchaseGoods from '../components/JSPurchaseGoods';
+import JMFooter from "../../components/JMFooter";
+import JMHeader from "../../components/JMHeader";
+import JSPurchaseGoods from '../../components/Purchase/JSPurchaseGoods';
 
 const MyPurchaseListBox = styled.div`
   width: 360px;
