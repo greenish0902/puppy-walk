@@ -1,12 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+/**
+ * @filename Member.jsx
+ * @description 회원 정보 입력 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import SubTitle from "../Title/SubTitle";
-import NavWrapper from "../Wrappers/NavWrapper";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
-import InputBox from "./InputBox";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import SubTitle from '../Title/SubTitle';
+import NavWrapper from '../Wrappers/NavWrapper';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
+import InputBox from './InputBox';
 
 const MemberContainer = styled(HomeWrapper)`
   .inputs {

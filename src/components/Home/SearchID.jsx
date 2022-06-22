@@ -1,11 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+/**
+ * @filename SearchID.jsx
+ * @description 아이디 찾기 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import HomeWrapper from "../../components/Wrappers/HomeWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import InputBox from "./InputBox";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import HomeWrapper from '../../components/Wrappers/HomeWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import InputBox from './InputBox';
 
 const SearchIDContainer = styled(HomeWrapper)`
   .birthInfos {

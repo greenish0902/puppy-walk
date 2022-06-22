@@ -1,12 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+/**
+ * @filename UserProfile.jsx
+ * @description 사용자 프로필 정보 입력 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import SubTitle from "../Title/SubTitle";
-import InputBox from "../Home/InputBox";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, Routes, Route } from 'react-router-dom';
+
+import SubTitle from '../Title/SubTitle';
+import InputBox from '../Home/InputBox';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
 
 const UserProfileContainer = styled(HomeWrapper)`
   .profileImg {
@@ -26,8 +32,8 @@ const UserProfileContainer = styled(HomeWrapper)`
       outline: none;
       line-height: 1.5;
       font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
-        Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-        "Noto Sans KR", "Malgun Gothic", sans-serif;
+        Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
+        'Noto Sans KR', 'Malgun Gothic', sans-serif;
     }
   }
 `;

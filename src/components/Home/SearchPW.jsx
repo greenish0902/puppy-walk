@@ -1,12 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+/**
+ * @filename SearchPW.jsx
+ * @description 비밀번호 찾기 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import SubTitle from "../../components/Title/SubTitle";
-import HomeWrapper from "../../components/Wrappers/HomeWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import InputBox from "./InputBox";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import SubTitle from '../../components/Title/SubTitle';
+import HomeWrapper from '../../components/Wrappers/HomeWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import InputBox from './InputBox';
 
 const SearchPWContainer = styled(HomeWrapper)`
   .contactBox {

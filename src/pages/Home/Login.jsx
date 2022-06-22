@@ -1,11 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+/**
+ * @filename Login.jsx
+ * @description 로그인 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import Title from "../../components/Title/Title";
-import SubTitle from "../../components/Title/SubTitle";
-import FrameWrapper from "../../components/Wrappers/FrameWrapper";
-import ButtonWrapper from "../../components/Wrappers/ButtonWrapper";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import Title from '../../components/Title/Title';
+import SubTitle from '../../components/Title/SubTitle';
+import FrameWrapper from '../../components/Wrappers/FrameWrapper';
+import ButtonWrapper from '../../components/Wrappers/ButtonWrapper';
 
 const LoginContainer = styled(FrameWrapper)`
   justify-content: space-between;
@@ -55,7 +61,7 @@ const LoginContainer = styled(FrameWrapper)`
 `;
 
 const Login = () => {
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
   };
 

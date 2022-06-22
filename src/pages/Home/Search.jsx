@@ -1,10 +1,16 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink, Routes, Route } from "react-router-dom";
+/**
+ * @filename Search.jsx
+ * @description 아이디/비밀번호 찾기 페이지
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import FrameWrapper from "../../components/Wrappers/FrameWrapper";
-import SearchID from "../../components/Home/SearchID";
-import SearchPW from "../../components/Home/SearchPW";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink, Routes, Route } from 'react-router-dom';
+
+import FrameWrapper from '../../components/Wrappers/FrameWrapper';
+import SearchID from '../../components/Home/SearchID';
+import SearchPW from '../../components/Home/SearchPW';
 
 const SearchContainer = styled(FrameWrapper)`
   h4 {
@@ -21,7 +27,7 @@ const SearchContainer = styled(FrameWrapper)`
     font-size: 12px;
   }
 
-  input:not([type="checkbox"]),
+  input:not([type='checkbox']),
   select {
     cursor: pointer;
     margin: 8px 0;

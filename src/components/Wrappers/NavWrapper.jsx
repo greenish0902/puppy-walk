@@ -1,5 +1,11 @@
-import { memo } from "react";
-import styled from "styled-components";
+/**
+ * @filename NavWrapper.jsx
+ * @description Home 페이지 하단 버튼을 감싸는 nav 태그 styled component
+ * @author 서소희 greenish0902@gmail.com
+ */
+
+import { memo } from 'react';
+import styled from 'styled-components';
 
 const NavWrapper = memo(styled.nav`
   .buttons {

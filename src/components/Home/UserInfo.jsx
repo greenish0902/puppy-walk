@@ -1,13 +1,19 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+/**
+ * @filename UserInfo.jsx
+ * @description 사용자 정보 입력 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import SubTitle from "../Title/SubTitle";
-import InputBox from "../Home/InputBox";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
-import BottomBox from "../Size/BottomBox";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, Routes, Route } from 'react-router-dom';
+
+import SubTitle from '../Title/SubTitle';
+import InputBox from '../Home/InputBox';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
+import BottomBox from '../Size/BottomBox';
 
 const UserInfoContainer = styled(HomeWrapper)`
   .row {

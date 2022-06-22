@@ -1,11 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, Routes, Route } from "react-router-dom";
+/**
+ * @filename Agreements.jsx
+ * @description 이용약관 동의 컴포넌트
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import SubTitle from "../Title/SubTitle";
-import ButtonWrapper from "../Wrappers/ButtonWrapper";
-import NavWrapper from "../Wrappers/NavWrapper";
-import HomeWrapper from "../Wrappers/HomeWrapper";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, Routes, Route } from 'react-router-dom';
+
+import SubTitle from '../Title/SubTitle';
+import ButtonWrapper from '../Wrappers/ButtonWrapper';
+import NavWrapper from '../Wrappers/NavWrapper';
+import HomeWrapper from '../Wrappers/HomeWrapper';
 
 const AgreementsContainer = styled(HomeWrapper)`
   .agreements {

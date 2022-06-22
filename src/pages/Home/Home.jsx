@@ -1,13 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+/**
+ * @filename Home.jsx
+ * @description 첫 접속시 연결되는 앱의 Home 화면
+ * @author 서소희 greenish0902@gmail.com
+ */
 
-import logo from "../../assets/img/dog.png";
-import Title from "../../components/Title/Title";
-import SubTitle from "../../components/Title/SubTitle";
-import ButtonWrapper from "../../components/Wrappers/ButtonWrapper";
-import FrameWrapper from "../../components/Wrappers/FrameWrapper";
-import NavWrapper from "../../components/Wrappers/NavWrapper";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+import logo from '../../assets/img/dog.png';
+import Title from '../../components/Title/Title';
+import SubTitle from '../../components/Title/SubTitle';
+import ButtonWrapper from '../../components/Wrappers/ButtonWrapper';
+import FrameWrapper from '../../components/Wrappers/FrameWrapper';
+import NavWrapper from '../../components/Wrappers/NavWrapper';
 
 const HomeContainer = styled.div`
   margin-top: 12px;
