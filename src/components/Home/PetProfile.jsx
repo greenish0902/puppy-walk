@@ -6,7 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import SubTitle from '../Title/SubTitle';
 import InputBox from '../Home/InputBox';

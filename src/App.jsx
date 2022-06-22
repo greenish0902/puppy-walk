@@ -7,6 +7,8 @@ import Home from './pages/Home/Home';
 import Login from './pages/Home/Login';
 import Signup from './pages/Home/Signup';
 import Search from './pages/Home/Search';
+import Place from './pages/Places/Place';
+import Reservation from './pages/Places/Reservation';
 
 const AppContainer = styled.div`
   margin: auto;
@@ -27,10 +29,12 @@ const App = () => {
     <AppContainer>
       <Routes>
         <Route>
-          <Route exact path="/" element={first ? <Home /> : <Main />} />
+          <Route path="/*" element={first ? <Home /> : <Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup/*" element={<Signup />} />
           <Route path="/search/*" element={<Search />} />
+          <Route path="/place/:id/*" element={<Place />} />
+          <Route path="/reservation/:id/*" element={<Reservation />} />
         </Route>
       </Routes>
     </AppContainer>

@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { NavLink, Routes, Route } from 'react-router-dom';
 
 import FrameWrapper from '../../components/Wrappers/FrameWrapper';
+import TopNavWrapper from '../../components/Wrappers/TopNavWrapper';
 import SearchID from '../../components/Home/SearchID';
 import SearchPW from '../../components/Home/SearchPW';
 
@@ -42,40 +43,16 @@ const SearchContainer = styled(FrameWrapper)`
   select:focus {
     outline: 1px solid var(--color-green-1);
   }
-
-  .top {
-    margin: 12px 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    a {
-      padding: 4px 12px;
-      width: 49%;
-      background-color: var(--color-light-gray);
-      border: 3px solid var(--color-light-gray);
-      border-bottom: none;
-      font-size: 12px;
-      text-align: center;
-      &.active {
-        color: var(--color-green-2);
-        background-color: var(--color-white);
-        border: 3px solid var(--color-mint-green-2);
-        border-bottom: none;
-        font-weight: bold;
-      }
-    }
-  }
 `;
 
 const Search = () => {
   return (
     <SearchContainer>
       <h4>회원정보 찾기</h4>
-      <nav className="top">
+      <TopNavWrapper>
         <NavLink to="id">아이디 찾기</NavLink>
         <NavLink to="password">비밀번호 찾기</NavLink>
-      </nav>
+      </TopNavWrapper>
       <Routes>
         <Route exact path="id" element={<SearchID />} />
         <Route exact path="password" element={<SearchPW />} />
