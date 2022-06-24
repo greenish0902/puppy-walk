@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "date": "오늘"
+    },
+    {
+      "id": 3,
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "date": "오늘"
+    },
+    {
+      "id": 4,
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "date": "오늘"
+    }
+  ]
+}

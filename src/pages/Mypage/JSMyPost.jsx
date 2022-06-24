@@ -5,6 +5,7 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components';
+import useAxios from 'axios-hooks'
 import { faMagnifyingGlass, faImage, faBars} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../../assets/scss/palette.scss"
@@ -272,6 +273,19 @@ const DimBox = styled.div`
 `
 
 const JSMyPost = memo(() => {
+  const url = "http://localhost:3001/data"
+  const [{data}] = useAxios(url);
+  const [{loading}, sendDelete] = useAxios({
+    method: 'DELETE'
+  }, {
+    useCache: false,
+    manual: true
+  })
+  const [changeData, setChangeData] = React.useState([]);
+  React.useEffect(() => {
+    setChangeData(data);
+  }, [data]);
+
   const [state, setState] = React.useState('내 게시글')
   const [type, setType] = React.useState('bars')
   const onClick = React.useCallback((e) => {
@@ -287,12 +301,38 @@ const JSMyPost = memo(() => {
   },[setType]);
 
   const [dim, setDim] = React.useState('none');
+  const [id, setId] = React.useState();
   const onClickN = React.useCallback(() => {
     setDim('none')
   },[setDim]);
-  const onClickY = React.useCallback(() => {
+  const onClickY = React.useCallback((e) => {
     setDim('block')
-  },[setDim]);
+    if (data) {
+      setId(parseInt(e.target.dataset.id))
+    }
+  },[setDim, setId, data]);
+  const onClickDelete = React.useCallback(() => {
+    (async () => {
+      let json = null;
+
+      try {
+        const response = await sendDelete({
+          method: 'DELETE',
+          url: `http://localhost:3001/data/${id}`
+        });
+        json = response.data;
+      } catch(e) {
+        console.error(e);
+        window.alert(`[${e.response.status}] ${e.response.statusText}\n${e.message}`);
+      }
+
+      if (json != null) {
+        setChangeData(changeData.filter((data) => data.id !== id))
+      }
+    })()
+    
+    setDim('none')
+  },[id, setDim, setChangeData, sendDelete, changeData])
   return (
     <>
       <JMHeader>내 게시글</JMHeader>
@@ -300,7 +340,7 @@ const JSMyPost = memo(() => {
         <div className="moveBtn">
           <div className="container">
             <p>게시물을 <strong>삭제</strong>하시겠습니까?</p>
-            <button className="yBtn" type="button">네</button>
+            <button onClick={onClickDelete} className="yBtn" type="button">네</button>
             <button onClick={onClickN} className="nBtn" type="button">아니요</button>
           </div>
         </div>
@@ -346,19 +386,25 @@ const JSMyPost = memo(() => {
         <hr />
         { state === "내 게시글" ? ( type === "bars" ? (
           <div>
-            <div className="listWrapper">
-              <div className="imgWrapper">
-                <img src={src} alt="sample" />
-              </div>
-              <div className="textWrapper">
-                <p className="title">title</p>
-                <p className="info">
-                  tag  |  location  |  authorNickname  |  date
-                </p>
-              </div>
-              <button onClick={onClickY} type="button">삭제하기</button>
-            </div>
-            <hr />
+            {
+              changeData && changeData.map((v,i) => {
+                return(
+                  <div key={i} className="listWrapper">
+                    <div className="imgWrapper">
+                      <img src={v.src} alt="sample" />
+                    </div>
+                    <div className="textWrapper">
+                      <p className="title">title</p>
+                      <p className="info">
+                        {v.tag}  |  {v.location}  |  {v.authorNickname}  |  {v.date}
+                      </p>
+                    </div>
+                    <button data-id={v.id} onClick={onClickY} type="button">삭제하기</button>
+                    <hr />
+                </div>
+                )
+              })
+            }
           </div>
           ) : (
             <div>
