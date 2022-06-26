@@ -4,16 +4,23 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '../../components/JMHeader';
 import Footer from '../../components/JMFooter';
 import '../../assets/scss/palette.scss';
+import CommunityList from './JMCommunityList';
+import CommunityRead from './JMCommunityRead';
 import CommunityHome from './JMCommunityHome';
-import CommunityGeneral from './JMCommunityGeneral';
-import CommunityKin from './JMCommunityKin';
-import CommunityCourse from './JMCommunityCourse';
 import Post from './JMPost';
 
 const CommunityContainer = styled.div`
   background-color: var(--color-light-gray);
   width: 360px;
+  height: 600px;
   margin: auto;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 `;
 
 const Padding = () => {
@@ -25,14 +32,26 @@ const Community = () => {
     <CommunityContainer>
       <Header>커뮤니티</Header>
       <Routes>
-        <Route path="/community" exact={true} element={<CommunityHome />} />
-        <Route path="/community/general" element={<CommunityGeneral />} />
-        <Route path="/community/kin" element={<CommunityKin />} />
+        {/* CommunityList에 props 전달 */}
+        <Route path="/" exact={true} element={<CommunityHome />} />
+        <Route path="/general" element={<CommunityList />} />
+        <Route path="/kin" element={<CommunityList />} />
         <Route
-          path="/community/course_recommend"
-          element={<CommunityCourse />}
+          path="/course"
+          element={<CommunityList />}
         />
-        <Route path="/post" element={<Post />} />
+        <Route
+          path="/general/:postNum"
+          element={<CommunityRead tab="general" />}
+        />
+        <Route
+          path="/course/:postNum"
+          element={<CommunityRead tab="course" />}
+        />
+        <Route
+          path="/kin/:postNum"
+          element={<CommunityRead tab="kin" />}
+        />
       </Routes>
       <Padding />
       <Footer />

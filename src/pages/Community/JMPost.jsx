@@ -2,10 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import '../../assets/scss/palette.scss';
 import ButtonWrapper from '../../components/ButtonWrapper';
+import Header from '../../components/JMHeader';
+import Footer from '../../components/JMFooter';
 
 const PostContainer = styled.div`
+  width: 360px;
+  height: 600px;
+  overflow: scroll;
   padding-top: 45px;
   margin-left: 10px;
+  padding-bottom: 50px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+  
 
   .info {
     display: flex;
@@ -29,6 +42,7 @@ const PostContainer = styled.div`
       background-color: var(--color-green-2);
       width: fit-content;
       padding: 5px;
+      cursor: pointer;
       border-radius: 15px;
 
       p {
@@ -58,6 +72,7 @@ const PostContainer = styled.div`
       width: 340px;
       height: 20px;
       font-weight: normal;
+      outline: none;
     }
 
     textarea {
@@ -98,6 +113,7 @@ const Post = () => {
 
   return (
     <PostContainer>
+      <Header />
       <div className="info">
         <div className="tab">
           <label htmlFor="tab">게시판 선택 > </label>
@@ -167,6 +183,7 @@ const Post = () => {
           취소하기
         </ButtonWrapper>
       </div>
+      <Footer />
     </PostContainer>
   );
 };
