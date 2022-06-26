@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
   z-index: 99999;
 
   p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 40px;
     text-align: center;
   }
