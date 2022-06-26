@@ -2,19 +2,19 @@
   "post": [
     {
       "postNum": 1,
-      "tab": "자유게시판",
+      "tab": "general",
       "tag": "강아지 자랑",
       "location": "",
       "date": "2022-06-15",
       "img": "img href",
       "title": "글 제목입니다.",
-      "content": "글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "content": "글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.",
       "authorNickname": "작성자 닉네임",
       "authorId": "작성자 아이디"
     },
     {
       "postNum": 2,
-      "tab": "자유게시판",
+      "tab": "general",
       "tag": "낙서글",
       "location": "",
       "date": "2022-06-15",
@@ -26,7 +26,7 @@
     },
     {
       "postNum": 3,
-      "tab": "산책코스추천",
+      "tab": "course",
       "tag": "",
       "location": "낙원구 행복동",
       "date": "2022-06-15",
@@ -38,7 +38,7 @@
     },
     {
       "postNum": 4,
-      "tab": "자유게시판",
+      "tab": "general",
       "tag": "낙서글",
       "location": "",
       "date": "2022-06-15",
@@ -50,7 +50,7 @@
     },
     {
       "postNum": 5,
-      "tab": "산책코스추천",
+      "tab": "course",
       "tag": "",
       "location": "이경구 강호동",
       "date": "2022-06-15",
@@ -62,7 +62,7 @@
     },
     {
       "postNum": 6,
-      "tab": "자유게시판",
+      "tab": "general",
       "tag": "낙서글",
       "location": "",
       "date": "2022-06-15",
@@ -74,7 +74,7 @@
     },
     {
       "postNum": 7,
-      "tab": "산책코스추천",
+      "tab": "course",
       "tag": "",
       "location": "밥먹구 우동",
       "date": "2022-06-15",
@@ -86,7 +86,7 @@
     },
     {
       "postNum": 8,
-      "tab": "지식in",
+      "tab": "kin",
       "tag": "",
       "location": "",
       "date": "2022-06-15",
@@ -98,7 +98,7 @@
     },
     {
       "postNum": 9,
-      "tab": "지식in",
+      "tab": "kin",
       "tag": "",
       "location": "",
       "date": "2022-06-15",
@@ -110,7 +110,7 @@
     },
     {
       "postNum": 10,
-      "tab": "지식in",
+      "tab": "kin",
       "tag": "",
       "location": "",
       "date": "2022-06-15",
@@ -217,6 +217,140 @@
       "location": "강서구 강서동",
       "authorNickname": "작성자 닉네임12",
       "authorId": "작성자 아이디12"
+    }
+  ],
+  "places": [
+    {
+      "src": "https://i.pinimg.com/736x/c2/43/1e/c2431eaaa365dfba263a8db3af87fbae.jpg",
+      "score": 3200,
+      "total": 3470,
+      "title": "Casa Las Tortugas",
+      "loc": "Av Damero, Mexico",
+      "price": "1260",
+      "love": false,
+      "cate": "애견펜션",
+      "id": "hello1",
+      "desc": "리뉴얼 글램핑 그리고 애견을 위한 감성숙소\n푸르게 눈부신 파란 하늘\n반짝이게 빛나는 아름다운 청도의 밤\n우리 아이들과 함께하는 감성 글램핑...\n\n- 21년 12월 리뉴얼\n- 최상급 실내 감성 인테리어\n- 완벽한 냉난방 시설\n- 글램핑 전 객실 개별 욕실 및 화장실\n- 초대형 애견 잔디 놀이터\n- 공용 야외수영장\n- 최신 애견 샤워룸 및 샤워용품 완비\n- 전 객실 개별 바베큐\n- 개별 장작 화로대 불멍\n- 호텔식 침구류\n- 매일 침구 교체 및 소독\n\n청도의 맑고 상쾌한 공기와 푸른 자연\n특별한 고객님들과 아이들을 위한 애견 감성 글램핑...\n\n※개인화기 및 장작 반입 불가합니다※",
+      "options": [
+        {
+          "src": "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_99%2F1585380240767IxrqU_JPEG%2FDJI_0047.jpg",
+          "title": "오션브릭풀빌라",
+          "desc": "상세설명1",
+          "min": "1000",
+          "max": "10000"
+        },
+        {
+          "src": "https://i.pinimg.com/736x/c1/3f/80/c13f80fc3d6b4afcdad6062a63ac2cab.jpg",
+          "title": "오션브릭풀빌라",
+          "desc": "상세설명1",
+          "min": "5000",
+          "max": "10390"
+        }
+      ]
+    },
+    {
+      "src": "https://i.pinimg.com/564x/e7/d2/3c/e7d23c2e26f097b091c28683b692c5d0.jpg",
+      "score": 1500,
+      "total": 3470,
+      "title": "Casa Las Tortugas",
+      "loc": "Av Damero, Mexico",
+      "price": "12600000",
+      "love": true,
+      "cate": "애견펜션",
+      "id": "hello2",
+      "desc": "GLAM DOG 애견전용 숙소에 캠핑의 감성을 더하다\n\n반려동물에 의한, 우리 아이들을 위한 애견펜션 글램독은..\n- 전 객실 드라이룸 펫밀리아 무료 배치\n- 전 객실 저상형 가구 배치\n- 감성 가득 캠핑용품 배치\n- 전 객실 글램독 메이드 애견히노끼탕 무료 배치\n- 전 객실 애견 용품 무료 배치\n- 전 객실 글램독 메이드 애견타올 무료배치\n- 전 객실 오션뷰\n- 호텔식 침구류를 사용, 매일 소독 및 침구 교체\n- 개별 테라스 바베큐(가스그릴사용)\n- 요청시 기본 양념(간장, 식용유, 소금, 설탕, 후추)은 무료제공",
+      "options": [
+        {
+          "src": "https://i.pinimg.com/564x/1a/98/9f/1a989fdeb54d8a7ba2f412d67f73c8ef.jpg",
+          "title": "소형견",
+          "desc": "Corgis are comical, cuddly, and charming, and no wonder the Queen adores them. And this particular sweetheart is the perfect ambassador of the breed.",
+          "min": "51000",
+          "max": "91000"
+        },
+        {
+          "src": "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_99%2F1585380240767IxrqU_JPEG%2FDJI_0047.jpg",
+          "title": "오션브릭풀빌라",
+          "desc": "상세설명1",
+          "min": "52000",
+          "max": "90000"
+        }
+      ]
+    },
+    {
+      "src": "https://i.pinimg.com/564x/92/d0/61/92d06179ded4abaed41952d48c74762c.jpg",
+      "score": 100,
+      "total": 3470,
+      "title": "Casa Las Tortugas",
+      "loc": "Av Damero, Mexico",
+      "price": "100000",
+      "love": false,
+      "cate": "애견펜션",
+      "id": "hello3",
+      "desc": "제주도 펜션 통나무파크\n\n독채 펜션 통나무파크에서 조용하고 안락한 분위기를 느끼며 사랑하는 가족, 친구, 연인과 함께 살아보는 힐링 여행을 경험해보세요. 모닥불과 바베큐파티로 여행의 즐거움은 배가 됩니다.\n\n함께 운영중인 도치돌목장에서 알파카, 말, 포니, 양, 염소, 토끼 등 사랑스러운 동물들과 교감하며 먹이주기 체험도 경험해보세요. 투숙객분들께는 특별한 할인 혜택이 제공됩니다.\n\n멋진 전망, 아늑한 숙소, 싱그러운 산책로.\n힐링의 섬 제주도, 숲 속의 작은 집, 제주도 펜션 통나무파크에서\n나만의 별장이 펼쳐집니다!",
+      "options": [
+        {
+          "src": "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_99%2F1585380240767IxrqU_JPEG%2FDJI_0047.jpg",
+          "title": "데일리 케어",
+          "desc": "24시간 풀옵션 상시 케어",
+          "min": "1000000",
+          "max": ""
+        },
+        {
+          "src": "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_99%2F1585380240767IxrqU_JPEG%2FDJI_0047.jpg",
+          "title": "소형견 케어",
+          "desc": "5kg 이하",
+          "min": "30000",
+          "max": "38000"
+        },
+        {
+          "src": "https://search.pstatic.net/common/?autoRotate=true&quality=95&type=f180_180&src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20200328_99%2F1585380240767IxrqU_JPEG%2FDJI_0047.jpg",
+          "title": "소형견 케어",
+          "desc": "5kg 이하",
+          "min": "30000",
+          "max": "38000"
+        },
+        {
+          "src": "https://i.pinimg.com/564x/06/03/63/060363ac7adaf75c9dc0720be0bd4820.jpg",
+          "title": "소형견 케어",
+          "desc": "5kg 이하",
+          "min": "30000",
+          "max": "38000"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/1057/1057317.png",
+      "name": "미용"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/3170/3170733.png",
+      "name": "음식점"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/6401/6401079.png",
+      "name": "훈련시설"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/4320/4320371.png",
+      "name": "동물병원"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/1257/1257375.png",
+      "name": "관광지"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/273/273177.png",
+      "name": "애견용품점"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/3168/3168684.png",
+      "name": "애견호텔"
+    },
+    {
+      "icon": "https://cdn-icons-png.flaticon.com/512/5235/5235784.png",
+      "name": "유치원"
     }
   ]
 }
