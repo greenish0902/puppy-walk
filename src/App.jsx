@@ -13,7 +13,6 @@ const App = () => {
         <Route path="/:where" element={<DogSupplies/>}/>
         <Route path="/detail/:title/:price" element={<JSGoodsDetail/>}/>
         <Route path="/cart" element={<JSCart/>}/>
-        <Route path="/cart/:title/:count/:price" element={<JSCart/>}/>
         <Route path="/payment" element={<JSPayment/>}/>
         <Route path="/payresult" element={<JSPayResult/>}/>
       </Routes>

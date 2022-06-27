@@ -5,11 +5,11 @@
  */
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { useParams, useNavigate } from 'react-router-dom';
+import useAxios from 'axios-hooks'
+import { useNavigate } from 'react-router-dom';
 
 import JMFooter from "../JMFooter";
 import JMHeader from "../JMHeader";
-import JSCartGoods from './JSCartGoods';
 import img from '../../assets/img/dog.png';
 
 
@@ -57,6 +57,51 @@ const CartBox = styled.div`
     height: 50px;
     width: 120px;
   }
+
+  .cartGoods {
+    display: block;
+    height: 60px;
+    width: 340px;
+    background: #999999;
+    margin: 0 auto 10px auto;
+    input {
+      display: block;
+      float: left;
+      height: 20px;
+      width: 20px;
+      margin: 20px 20px 20px 10px;
+    }
+
+    img {
+      display: block;
+      height: 60px;
+      width: 60px;
+      float: left;
+      margin-right: 10px;
+    }
+
+    .pBox {
+      float: left;
+      p {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+
+    button {
+      float: right;
+      margin: 20px 10px 20px 0;
+      height: 20px;
+      width: 20px;
+    }  
+
+    &:after {
+      clear: both;
+      content: '';
+      float: none;
+      display: block;
+    }
+  }
 `
 const DimBox = styled.div`
   height: 940px;
@@ -66,7 +111,7 @@ const DimBox = styled.div`
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  z-index: 2;
+  z-index: 100;
   .moveBtn{
     position: absolute;
     top: 50%;
@@ -84,10 +129,6 @@ const DimBox = styled.div`
     }
     p {
       margin-bottom: 30px;
-
-      strong {
-        color: red;
-      }
     }
     button {
       width: 100px;
@@ -96,6 +137,7 @@ const DimBox = styled.div`
       border: none;
       color: white;
       cursor: pointer;
+
       &:hover {
         transform: scale(1.1);
         transition: all 0.1s ease-in-out;
@@ -111,24 +153,95 @@ const DimBox = styled.div`
   }
 `
 const Cart = memo(() => {
-  const [item, setItem] = React.useState(false);
   const navigate = useNavigate();
-  const {title, count, price} = useParams();
   const onClickNothing = React.useCallback(() => {
     navigate("/")
   },[navigate])
+  const url = "http://localhost:3001/cart"
+  const [{data}] = useAxios(url);
+  const [{loading}, sendDelete] = useAxios({
+    method: 'DELETE'
+  }, {
+    useCache: false,
+    manual: true
+  })
+  // 삭제이벤트
+  const [changeData, setChangeData] = React.useState();
+  const [select, setSelect] = React.useState();
+
   React.useEffect(() => {
-    if (count && title && price) {
-      setItem(true)
-    }
-  },[count, title, price]);
+    setChangeData(data);
+  }, [setChangeData, data]);
+  // dim state
   const [dim, setDim] = React.useState('none');
+  // id state
+  const [id, setId] = React.useState();
   const onClickN = React.useCallback(() => {
     setDim('none')
-  },[setDim])
-  const onClickY = React.useCallback(() => {
+  },[setDim]);
+  const onClickY = React.useCallback((e) => {
     setDim('block')
-  },[setDim])
+    if (data) {
+      setId(parseInt(e.target.dataset.id))
+    }
+  },[setDim, setId, data]);
+  const onClickCheckbox = React.useCallback((e) => {
+    const checkbox = document.querySelectorAll(".checkBox");
+    const checkedItem = Array.from(checkbox).filter((v,i) => v.checked)
+    const checkedValue = checkedItem.map((v, i) => parseInt(v.value));
+    setSelect(checkedValue)
+  }, [setSelect])
+
+  // Axios-hooks를 사용한 onClickDelete
+  const onClickDelete = React.useCallback(() => {
+    (async () => {
+      let json = null;
+
+      try {
+        const response = await sendDelete({
+          method: 'DELETE',
+          url: `http://localhost:3001/cart/${id}`
+        });
+        json = response.data;
+      } catch(e) {
+        console.error(e);
+        window.alert(`[${e.response.status}] ${e.response.statusText}\n${e.message}`);
+      }
+
+      if (json != null) {
+        setChangeData(changeData.filter((data) => data.id !== id))
+      }
+    })();
+    
+    setDim('none')
+  },[id, setDim, setChangeData, sendDelete, changeData])
+  const onClickDeleteSelect = React.useCallback(()=> {
+    (async () => {
+      let json = null;
+      try {
+        for (let i = 0; i < select.length; i++) {
+          const response = await sendDelete({
+            method: 'DELETE',
+            url: `http://localhost:3001/cart/${select[i]}`
+          })
+          json = response.data;
+        }
+      }catch(e){
+        console.error(e);
+        window.alert(`[${e.response.status}] ${e.response.statusText}\n${e.message}`);
+      }
+      if(json != null) {
+        setChangeData(changeData.filter((data) => !select.includes(data.id)))
+        setSelect();
+        window.location.replace('./cart')
+      }
+    })();
+    setDim('none')
+  },[setDim, setChangeData, sendDelete, changeData, select, setSelect])
+  let total = 0;
+  React.useEffect(() => {
+    console.log(select);
+  },[select]);
   return (
     <>
       <JMHeader>장바구니</JMHeader>
@@ -136,23 +249,41 @@ const Cart = memo(() => {
         <div className="moveBtn">
           <div className="container">
             <p>게시물을 <strong>삭제</strong>하시겠습니까?</p>
-            <button className="yBtn" type="button">네</button>
+            <button onClick={ id ? onClickDelete : onClickDeleteSelect} className="yBtn" type="button">네</button>
             <button onClick={onClickN} className="nBtn" type="button">아니요</button>
           </div>
         </div>
       </DimBox>
       <CartBox>
         {
-          item ? (
-            <div>
-              <button onClick={onClickY} className="deleteBtn" type="button">선택 삭제</button>
+          changeData && changeData.length !== 0 ? (
+            <ul>
+              <button onClick={ select && select.length !==0 ? onClickY : null} className="deleteBtn" type="button">선택 삭제</button>
               <ul>
-                <JSCartGoods onClick={onClickY} src={img} title={title} count={count} price={price}/>
+                {
+                  changeData && changeData.map((v, i) => {
+                    total += v.price
+                    return (
+                      <li key={i} className="cartGoods">
+                        <form>
+                          <input onClick={onClickCheckbox} unchecked="true" className="checkBox" type="checkbox" value={v.id}/>
+                          <img src={img} alt={v.title}/>
+                          <div className="pBox">
+                            <p>{v.title}</p>
+                            <p>{v.count}</p>
+                            <p>{v.price}</p>
+                          </div>
+                        </form>
+                        <button data-id={v.id} onClick={onClickY} type="button">X</button>
+                      </li>
+                    )
+                  })
+                }
               </ul>
               <div className="amount">
-                <p>{price}원 &nbsp;&nbsp; + &nbsp;&nbsp; 배송비 = &nbsp;&nbsp; 총 금액</p>
+                <p>{total.toLocaleString()}원 &nbsp;&nbsp; + &nbsp;&nbsp; 배송비 = &nbsp;&nbsp; 총 금액</p>
               </div>
-            </div>
+            </ul>
           ) : (
             <div className="nothingInCart">
               <p className="nothingMessage">장바구니에 담긴 상품이 없습니다.</p>
