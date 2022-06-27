@@ -389,59 +389,72 @@ const JSMyPost = memo(() => {
             {
               changeData && changeData.map((v,i) => {
                 return(
-                  <div key={i} className="listWrapper">
-                    <div className="imgWrapper">
-                      <img src={v.src} alt="sample" />
+                  <div>
+                    <div key={i} className="listWrapper">
+                      <div className="imgWrapper">
+                        <img src={src} alt="sample" />
+                      </div>
+                      <div className="textWrapper">
+                        <p className="title">{v.title}</p>
+                        <p className="info">
+                          {v.tag}  |  {v.location}  |  {v.authorNickname}  |  {v.date}
+                        </p>
+                      </div>
+                      <button data-id={v.id} onClick={onClickY} type="button">삭제하기</button>
                     </div>
-                    <div className="textWrapper">
-                      <p className="title">title</p>
-                      <p className="info">
-                        {v.tag}  |  {v.location}  |  {v.authorNickname}  |  {v.date}
-                      </p>
-                    </div>
-                    <button data-id={v.id} onClick={onClickY} type="button">삭제하기</button>
                     <hr />
-                </div>
+                  </div>
                 )
               })
             }
           </div>
           ) : (
             <div>
-              <div className="listBox">
-                <div className="imgBox">
-                  <img src={src} alt="img"/>
-                </div>
-                <div className='textBox'>
-                  <p className="title">title</p>
-                  <p className="info">
-                    {"tag"} | {"location"} | {"author"} | {"date"}
-                  </p>
-                </div>
-                <button onClick={onClickY} className="deleteBtn" type="button">삭제하기</button>
-              </div>
+              {
+                changeData && changeData.map((v,i) => {
+                  return (
+                    <div key={i} className="listBox">
+                      <div className="imgBox">
+                        <img src={src} alt="img"/>
+                      </div>
+                      <div className='textBox'>
+                        <p className="title">{v.title}</p>
+                        <p className="info">
+                          {v.tag} | {v.location} | {v.author} | {v.date}
+                        </p>
+                      </div>
+                      <button data-id={v.id} onClick={onClickY} className="deleteBtn" type="button">삭제하기</button>
+                    </div>
+                  )
+                })
+              }
             </div>
           )) : (
             <div>
-              <div className="listWrapper">
-                <div className="imgWrapper">
-                  <img src={src} alt="sample" />
-                </div>
-                <div className="textWrapper">
-                  <p className="title">title</p>
-                  <p className="info">
-                    tag  |  location  |  authorNickname  |  date
-                  </p>
-                </div>
-                <div className="commentWrapper">
-                  <p>내 댓글: {"댓글 남기고 갑니다~"}</p>
-                </div>
-                <button onClick={onClickY} className="commentDeleteBtn" type="button">삭제하기</button>
-              </div>
-              <hr />
+              {changeData && changeData.map((v, i) => {
+                return(
+                  <div>
+                    <div key={i} className="listWrapper">
+                      <div className="imgWrapper">
+                        <img src={src} alt="sample" />
+                      </div>
+                      <div className="textWrapper">
+                        <p className="title">{v.title}</p>
+                        <p className="info">
+                          {v.tag}  |  {v.location}  |  {v.authorNickname}  |  {v.date}
+                        </p>
+                      </div>
+                      <div className="commentWrapper">
+                        <p>내 댓글: {v.comment}</p>
+                      </div>
+                      <button data-id={v.id} onClick={onClickY} className="commentDeleteBtn" type="button">삭제하기</button>
+                    </div>
+                    <hr/>
+                  </div>
+                )
+              })}
             </div>
           )}
-
       </MyPostBox>
       <JMFooter/>
     </>

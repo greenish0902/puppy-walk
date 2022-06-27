@@ -14,7 +14,6 @@ const App = () => {
         <Route path="/mypage" element={<JSMyPage/>}/>
         <Route path="/minihome" element={<JSMiniHome/>}/>
         <Route path="/cart" element={<JSCart/>}/>
-        <Route path="/cart/:title/:count/:price" element={<JSCart/>}/>
         <Route path="/purchase" element={<JSMyPurchasePage/>}/>
         <Route path="/purchaselist" element={<JSMyPurchaseList/>}/>
         <Route path="/purchasedetail/:date" element={<JSPurchaseDetail/>}/>

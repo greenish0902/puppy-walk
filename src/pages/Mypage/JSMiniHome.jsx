@@ -244,6 +244,9 @@ const JSMiniHome = memo(() => {
   const onClickPost = React.useCallback(() => {
     navigate('/minihome/post')
   },[navigate])
+  const onClickCart = React.useCallback(()=> {
+    navigate('/cart')
+  },[navigate])
 
   const [dim, setDim] = React.useState('none');
   const onClickN = React.useCallback(() => {
@@ -327,7 +330,7 @@ const JSMiniHome = memo(() => {
           </div>
           <div className='titleBox'>
             <p className='title'>장바구니</p>
-            <span className="seeMore">더보기...</span>
+            <span onClick={onClickCart} className="seeMore">더보기...</span>
             <hr/>
           </div>
           <div>
