@@ -4,7 +4,7 @@
  * @author 신지섭(pon0304616@gmail.com)
  */
 import React, { memo } from 'react';
-import {useNavigate} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 import styled from "styled-components"
 
 import JSPayGoods from '../../components/Pay/JSPayGoods';
@@ -83,6 +83,7 @@ const ErrorBox = styled.div`
   }
 `
 const JSPayResult = memo(() => {
+  const { state } = useLocation();
   const result = false;
   const navigate = useNavigate();
   const onClick = React.useCallback(() => {
@@ -113,8 +114,7 @@ const JSPayResult = memo(() => {
         ) : (
           <ErrorBox>
             <div className='text'>
-              <p>결제에 실패했습니다.</p>
-              <p>error: error-code</p>
+              <p>{state}</p>
             </div>
             <button onClick={onClick} type="button">OK</button>
           </ErrorBox>
