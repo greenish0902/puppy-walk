@@ -31,7 +31,7 @@ class RegexHelper {
   minLength(field, len, msg) {
     this.value(field, msg);
     const content = field.value;
-    if (content.trim().legth < len) {
+    if (content.trim().length < len) {
       throw new BadRequestException(msg, field);
     }
     return true;

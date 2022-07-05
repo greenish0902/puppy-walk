@@ -4,9 +4,11 @@
  * @author 서소희 greenish0902@gmail.com
  */
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
+import checkValid from '../../utils/checkValid';
 
 import SubTitle from '../Title/SubTitle';
 import InputBox from '../Home/InputBox';
@@ -22,7 +24,7 @@ const UserInfoContainer = styled(HomeWrapper)`
     justify-content: space-between;
     .genderBox {
       margin-left: 4px;
-      width: 30%;
+      width: 32%;
       display: flex;
       flex-direction: column;
     }
@@ -62,10 +64,60 @@ const UserInfoContainer = styled(HomeWrapper)`
 `;
 
 const UserInfo = () => {
+  const codeRef = useRef(null);
+  const [done, setDone] = useState(false);
+  const [valid, setValid] = useState({
+    name: false,
+    birthInfos: false,
+    contact: false,
+    code: false,
+  });
+  const [msg, setMsg] = useState({
+    name: '',
+    birthInfos: '',
+    contact: '',
+    code: '',
+  });
+  const fields = ['name', 'birthInfos', 'contact', 'code'];
+
+  const handleBlur = event => {
+    const field = event.target;
+    if (!fields.includes(field.name)) return;
+    try {
+      checkValid(field);
+      field.classList.remove('error');
+      field.name.includes('birth')
+        ? updateStates('birthInfos', '')
+        : updateStates(field.name, '');
+    } catch (error) {
+      const { field, msg } = error;
+      field.classList.add('error');
+      field.name.includes('birth')
+        ? updateStates('birthInfos', msg)
+        : updateStates(field.name, msg);
+    }
+  };
+
+  const updateStates = (name, newMsg) => {
+    setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
+    setValid(prev => ({ ...prev, [name]: newMsg === '' ? true : false }));
+  };
+
+  const getCode = event => {
+    event.preventDefault();
+    if (!valid.contact) return;
+    codeRef.current.disabled = false;
+  };
+
+  useEffect(() => {
+    console.log('valid', valid);
+    setDone(() => fields.every(field => valid[field]));
+  }, [valid]);
+
   return (
     <UserInfoContainer>
       <SubTitle>사용자 정보 입력</SubTitle>
-      <div className="inputs">
+      <form className="inputs" onBlur={handleBlur}>
         {/* 이름, 성별 */}
         <div className="row">
           <InputBox label="이름" name="name" />
@@ -79,13 +131,9 @@ const UserInfo = () => {
             </select>
           </div>
         </div>
+        <p className="msg">{msg.name}</p>
         {/* 닉네임 */}
-        <InputBox
-          label="닉네임"
-          name="name"
-          placeholder="2글자 이상 8글자 이하"
-          className="row"
-        />
+        <InputBox label="닉네임" name="nickname" className="row" option />
         {/* 생년월일: 년, 월, 일 */}
         <div>
           <InputBox label="생년월일" />
@@ -101,6 +149,7 @@ const UserInfo = () => {
             </select>
             <input name="birthDay" placeholder="일" />
           </div>
+          <p className="msg">{msg.birthInfos}</p>
         </div>
         {/* 전화번호: 지역번호, 전화번호, 인증번호 */}
         <div>
@@ -112,26 +161,30 @@ const UserInfo = () => {
           </select>
           <div className="contactBox">
             <input name="contact" type="text" placeholder="전화번호 입력" />
-            <button className="contactBtn">인증번호 받기</button>
+            <button className="contactBtn" onClick={getCode}>
+              인증번호 받기
+            </button>
           </div>
           <input
+            ref={codeRef}
             name="code"
             type="text"
             placeholder="인증번호를 입력하세요"
             disabled
           />
         </div>
+        <p className="msg">{msg.contact}</p>
         {/* 주소 */}
         <InputBox label="주소" option />
         <div className="address">
           <div className="row">
-            <input type="text" placeholder="우편번호" />
-            <input type="text" placeholder="주소" />
+            <input name="addrCode" type="text" placeholder="우편번호" />
+            <input name="addrMain" type="text" placeholder="주소" />
           </div>
-          <input type="text" placeholder="상세주소" />
+          <input name="addrDetails" type="text" placeholder="상세주소" />
         </div>
         {/* 카카오맵 */}
-      </div>
+      </form>
       <NavWrapper>
         <div className="small">
           <Link to="/login">로그인하러 가기</Link>
@@ -140,9 +193,17 @@ const UserInfo = () => {
           <Link to="/signup/member">
             <ButtonWrapper>이전</ButtonWrapper>
           </Link>
-          <Link to="/signup/user_profile">
-            <ButtonWrapper>다음</ButtonWrapper>
-          </Link>
+          {done ? (
+            <Link to="/signup/user_profile">
+              <ButtonWrapper color="white" bgColor="green-2">
+                다음
+              </ButtonWrapper>
+            </Link>
+          ) : (
+            <Link to="">
+              <ButtonWrapper>다음</ButtonWrapper>
+            </Link>
+          )}
         </div>
       </NavWrapper>
       <BottomBox />
