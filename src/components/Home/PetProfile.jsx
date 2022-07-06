@@ -4,7 +4,7 @@
  * @author 서소희 greenish0902@gmail.com
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -39,6 +39,13 @@ const PetProfileContainer = styled(HomeWrapper)`
 `;
 
 const PetProfile = () => {
+  const [done, setDone] = useState(false);
+
+  const handleChange = event => {
+    if (event.target.value.length > 0 === done) return;
+    setDone(() => event.target.value.length > 0);
+  };
+
   return (
     <PetProfileContainer>
       <SubTitle>반려견 프로필 정보 입력</SubTitle>
@@ -46,8 +53,7 @@ const PetProfile = () => {
       <div className="inputs">
         <InputBox label="반려견 프로필 소개" />
         <textarea
-          name=""
-          id=""
+          onChange={handleChange}
           cols="30"
           rows="10"
           placeholder="20자 이상 입력해주세요."
@@ -55,17 +61,23 @@ const PetProfile = () => {
       </div>
       <NavWrapper>
         <div className="small">
-          <Link to="/login">다른 반려견 추가하러 가기</Link>
+          <Link to="/mypage/pets">다른 반려견 추가하러 가기</Link>
         </div>
         <div className="buttons">
           <Link to="/signup/user_info">
             <ButtonWrapper>이전</ButtonWrapper>
           </Link>
-          <Link to="/">
-            <ButtonWrapper color="white" bgColor="green-2">
-              완료하기
-            </ButtonWrapper>
-          </Link>
+          {done ? (
+            <Link to="/">
+              <ButtonWrapper color="white" bgColor="green-2">
+                완료하기
+              </ButtonWrapper>
+            </Link>
+          ) : (
+            <Link to="/">
+              <ButtonWrapper>완료하기</ButtonWrapper>
+            </Link>
+          )}
         </div>
       </NavWrapper>
     </PetProfileContainer>

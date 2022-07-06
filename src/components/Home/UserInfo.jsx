@@ -68,7 +68,9 @@ const UserInfo = () => {
   const [done, setDone] = useState(false);
   const [valid, setValid] = useState({
     name: false,
-    birthInfos: false,
+    birthYear: false,
+    birthMonth: false,
+    birthDay: false,
     contact: false,
     code: false,
   });
@@ -78,7 +80,14 @@ const UserInfo = () => {
     contact: '',
     code: '',
   });
-  const fields = ['name', 'birthInfos', 'contact', 'code'];
+  const fields = [
+    'name',
+    'birthYear',
+    'birthMonth',
+    'birthDay',
+    'contact',
+    'code',
+  ];
 
   const handleBlur = event => {
     const field = event.target;
@@ -86,20 +95,18 @@ const UserInfo = () => {
     try {
       checkValid(field);
       field.classList.remove('error');
-      field.name.includes('birth')
-        ? updateStates('birthInfos', '')
-        : updateStates(field.name, '');
+      updateStates(field.name, '');
     } catch (error) {
       const { field, msg } = error;
       field.classList.add('error');
-      field.name.includes('birth')
-        ? updateStates('birthInfos', msg)
-        : updateStates(field.name, msg);
+      updateStates(field.name, msg);
     }
   };
 
   const updateStates = (name, newMsg) => {
-    setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
+    if (name.includes('birth')) {
+      setMsg(prevMsg => ({ ...prevMsg, birthInfos: newMsg }));
+    } else setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
     setValid(prev => ({ ...prev, [name]: newMsg === '' ? true : false }));
   };
 
@@ -110,8 +117,7 @@ const UserInfo = () => {
   };
 
   useEffect(() => {
-    console.log('valid', valid);
-    setDone(() => fields.every(field => valid[field]));
+    setDone(() => fields.every(name => valid[name] === true));
   }, [valid]);
 
   return (

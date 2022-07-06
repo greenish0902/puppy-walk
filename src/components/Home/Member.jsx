@@ -51,10 +51,8 @@ const Member = () => {
   };
 
   const updateStates = (name, newMsg) => {
-    if (msg[name] === newMsg || (newMsg !== '' && msg[name] !== '')) return;
     setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
-    if (valid[name] === (msg === '')) return;
-    setValid(prev => ({ ...prev, [name]: msg === '' ? true : false }));
+    setValid(prev => ({ ...prev, [name]: newMsg === '' ? true : false }));
   };
 
   useEffect(() => {

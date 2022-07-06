@@ -55,6 +55,13 @@ const checkValid = (field, formRef) => {
     case 'contact':
       regexHelper.phone(field, '형식에 맞지 않는 번호입니다.');
       break;
+    case 'puppyName':
+      regexHelper.value(field, '필수 정보입니다.');
+      regexHelper.korEng(field, '한글, 영문만 사용 가능합니다.');
+      break;
+    case 'breed':
+    case 'vaccination':
+      regexHelper.value(field, '필수 정보입니다.');
   }
 };
 
