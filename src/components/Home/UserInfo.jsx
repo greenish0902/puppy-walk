@@ -16,6 +16,7 @@ import ButtonWrapper from '../Wrappers/ButtonWrapper';
 import NavWrapper from '../Wrappers/NavWrapper';
 import HomeWrapper from '../Wrappers/HomeWrapper';
 import BottomBox from '../Size/BottomBox';
+import MapContainer from './MapContainer';
 
 const UserInfoContainer = styled(HomeWrapper)`
   .row {
@@ -190,6 +191,7 @@ const UserInfo = () => {
           <input name="addrDetails" type="text" placeholder="상세주소" />
         </div>
         {/* 카카오맵 */}
+        <MapContainer />
       </form>
       <NavWrapper>
         <div className="small">
