@@ -6,10 +6,7 @@ const checkValid = (field, formRef) => {
   switch (field.name) {
     case 'id':
       regexHelper.value(field, '필수 정보입니다.');
-      errorMsg = '5~20자의 영문 소문자, 숫자만 사용 가능합니다.';
-      regexHelper.engNum(field, errorMsg);
-      regexHelper.minLength(field, 5, errorMsg);
-      regexHelper.maxLength(field, 20, errorMsg);
+      regexHelper.email(field, '형식에 맞는 이메일을 입력해주세요.');
       break;
     case 'password':
       regexHelper.value(field, '필수 정보입니다.');
@@ -53,6 +50,7 @@ const checkValid = (field, formRef) => {
       regexHelper.range(field, 1, 31, '생년월일을 다시 확인해주세요.');
       break;
     case 'contact':
+      regexHelper.value(field, '필수 정보입니다.');
       regexHelper.phone(field, '형식에 맞지 않는 번호입니다.');
       break;
     case 'puppyName':

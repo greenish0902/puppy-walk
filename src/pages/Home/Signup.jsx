@@ -16,24 +16,6 @@ import UserProfile from '../../components/Home/UserProfile';
 import PetInfo from '../../components/Home/PetInfo';
 import PetProfile from '../../components/Home/PetProfile';
 
-const Signup = () => {
-  return (
-    <SignupContainer>
-      <h4>회원가입</h4>
-      <Routes>
-        <Route exact path="/" element={<Agreements />} />
-        <Route path="member" element={<Member />} />
-        <Route path="user_info" element={<UserInfo />} />
-        <Route path="user_profile" element={<UserProfile />} />
-        <Route path="pet_info" element={<PetInfo />} />
-        <Route path="pet_profile" element={<PetProfile />} />
-      </Routes>
-    </SignupContainer>
-  );
-};
-
-export default Signup;
-
 const SignupContainer = styled(FrameWrapper)`
   h4 {
     font-weight: bold;
@@ -83,3 +65,21 @@ const SignupContainer = styled(FrameWrapper)`
     color: var(--color-red);
   }
 `;
+
+const Signup = () => {
+  return (
+    <SignupContainer>
+      <h4>회원가입</h4>
+      <Routes>
+        <Route exact path="/" element={<Agreements />} />
+        <Route path="member" element={<Member />} />
+        <Route path="user_info" element={<UserInfo />} />
+        <Route path="user_profile" element={<UserProfile />} />
+        <Route path="pet_info" element={<PetInfo />} />
+        <Route path="pet_profile" element={<PetProfile />} />
+      </Routes>
+    </SignupContainer>
+  );
+};
+
+export default Signup;

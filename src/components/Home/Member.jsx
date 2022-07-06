@@ -66,11 +66,7 @@ const Member = () => {
     <MemberContainer>
       <SubTitle>회원 정보 입력</SubTitle>
       <form className="inputs" onBlur={handleBlur} ref={formRef}>
-        <InputBox
-          label="아이디"
-          name="id"
-          placeholder="5~20자 영문 소문자, 숫자"
-        />
+        <InputBox label="아이디 (이메일)" name="id" />
         <p className="msg">{msg.id}</p>
         <InputBox
           label="비밀번호"

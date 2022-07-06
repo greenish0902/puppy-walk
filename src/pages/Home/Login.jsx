@@ -72,7 +72,12 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className="box">
           <input type="text" name="id" placeholder="아이디 (이메일)" />
-          <input type="password" name="password" placeholder="비밀번호" />
+          <input
+            type="password"
+            name="password"
+            placeholder="비밀번호"
+            autoComplete="off"
+          />
         </div>
         <div className="etc">
           <Link to="/search/id">아이디/비밀번호 찾기</Link>
