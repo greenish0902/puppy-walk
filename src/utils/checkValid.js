@@ -60,6 +60,9 @@ const checkValid = (field, formRef) => {
     case 'breed':
     case 'vaccination':
       regexHelper.value(field, '필수 정보입니다.');
+      break;
+    default:
+      break;
   }
 };
 

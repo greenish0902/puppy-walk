@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Routes, Route } from 'react-router-dom';
+
+import { AuthContext } from './utils/AuthContextProvider';
 
 import Main from './Main';
 import Home from './pages/Home/Home';
@@ -22,14 +24,14 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-  // 세션 정보에 따라 첫 접속시 보이는 컴포넌트 다르게 구현
-  const [first, setFirst] = useState(false);
+  // localStorage 정보에 따라 첫 접속시 보이는 컴포넌트 다르게 구현
+  const { id } = useContext(AuthContext);
 
   return (
     <AppContainer>
       <Routes>
         <Route>
-          <Route path="/*" element={first ? <Home /> : <Main />} />
+          <Route path="/*" element={id === '' ? <Home /> : <Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup/*" element={<Signup />} />
           <Route path="/search/*" element={<Search />} />

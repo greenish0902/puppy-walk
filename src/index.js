@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { AuthContextProvider } from './utils/AuthContextProvider';
 
 // components
 import Meta from './Meta';
@@ -19,7 +20,9 @@ root.render(
     <GlobalStyle />
     <Meta />
     <BrowserRouter>
-      <App />
+      <AuthContextProvider>
+        <App />
+      </AuthContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
 );
