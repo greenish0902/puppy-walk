@@ -3,7 +3,7 @@ import React, { useState, createContext, memo, useCallback } from 'react';
 const AuthContext = createContext({ id: '' });
 
 const AuthContextProvider = memo(({ children }) => {
-  const [id, setId] = useState('');
+  const [id, setId] = useState(localStorage.getItem('id'));
 
   const signin = useCallback(id => {
     localStorage.setItem('id', id);
