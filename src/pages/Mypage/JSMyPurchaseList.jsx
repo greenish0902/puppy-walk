@@ -47,8 +47,8 @@ const JSMyPurchaseList = memo(() => {
           data ? (
             <div>
               <h3>구매 내역</h3>
-              <JSPurchaseGoods src={src} title={"title"} price={"10,000"} date={"2022-06-19"}/>
-              <JSPurchaseGoods src={src} title={"title"} price={"10,000"} date={"2022-06-18"}/>
+              <JSPurchaseGoods src={src} title={"title"} price={"10,000"} date={"2022-06-19"} state={"배송중"}/>
+              <JSPurchaseGoods src={src} title={"title"} price={"10,000"} date={"2022-06-18"} state={"배송완료"}/>
             </div>
           ) : (
             <div className='nothingInPurchase'>

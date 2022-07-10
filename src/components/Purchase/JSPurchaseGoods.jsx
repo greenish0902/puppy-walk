@@ -9,7 +9,7 @@ import styled from 'styled-components';
 
 const PurchaseGoodsBox = styled.div`
   width: 340px;
-  height: 60px;
+  height: 80px;
   background: rgb(127, 127, 127);
   margin: auto;
   margin-bottom: 10px;
@@ -21,8 +21,8 @@ const PurchaseGoodsBox = styled.div`
 
     img {
       display: block;
-      height: 60px;
-      width: 60px;
+      height: 80px;
+      width: 80px;
     }
   }
 
@@ -34,13 +34,14 @@ const PurchaseGoodsBox = styled.div`
     }
   }
 
+
   button {
     display: block;
     position: absolute;
     height: 40px;
     width: 100px;
     right: 10px;
-    top: 10px;
+    top: 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -53,8 +54,11 @@ const PurchaseGoodsBox = styled.div`
     display: block;
   }
 `
+const StateBox = styled.p`
+  color: ${({state}) => state === "배송완료" ? 'green' : 'red'};
+`
 
-const JSPurchaseGoods = memo(({src, date, title, price}) => {
+const JSPurchaseGoods = memo(({src, date, title, price, state}) => {
   const navigate = useNavigate()
   const onClickDetail = React.useCallback(()=> {
     navigate(`/purchasedetail/${date}`)
@@ -68,6 +72,7 @@ const JSPurchaseGoods = memo(({src, date, title, price}) => {
         <p>{title}</p>
         <p>{price}</p>
         <p>{date}</p>
+        <StateBox state={state}>{state}</StateBox>
       </div>
       <button onClick={onClickDetail} type="button">상세보기</button>
     </PurchaseGoodsBox>
