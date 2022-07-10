@@ -63,7 +63,6 @@ const JSNotice = memo(() => {
       <JMHeader>공지사항</JMHeader>
       <NoticeBox>
         <p className='pageTitle'>공지사항</p>
-        {/*반복문 들어가야함*/}
         <div className="listWrapper">
           <div className="imgWrapper">
             <img src={src} alt="sample" />
@@ -71,7 +70,7 @@ const JSNotice = memo(() => {
           <div className="textWrapper">
             <p className="title"><strong>&lt;공지&gt;</strong>&nbsp;title</p>
             <p className="info">
-              tag  |  location  |  authorNickname  |  date
+              tag   |  authorNickname  |  date
             </p>
           </div>
         </div>
@@ -83,7 +82,7 @@ const JSNotice = memo(() => {
           <div className="textWrapper">
             <p className="title"><strong>&lt;공지&gt;</strong>&nbsp;title</p>
             <p className="info">
-              tag  |  location  |  authorNickname  |  date
+              tag   |  authorNickname  |  date
             </p>
           </div>
         </div>
