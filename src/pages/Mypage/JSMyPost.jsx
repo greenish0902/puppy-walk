@@ -6,9 +6,8 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
 import useAxios from 'axios-hooks'
-import { faMagnifyingGlass, faImage, faBars} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import "../../assets/scss/palette.scss"
+import { BsImageFill, BsSearch } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
 import src from "../../assets/img/dog.png"
 
 import JMFooter from '../../components/JMFooter';
@@ -48,11 +47,13 @@ const MyPostBox = styled.div`
         color: rgb(127, 127, 127, 0.5);
         font-size: 16px;
         cursor: pointer;
+        padding-bottom: 8px;
       }
 
       svg {
         display: block;
         position: relative;
+        z-index: -1;
         top: 8px;
         z-index: 2;
         height: 30px;
@@ -297,7 +298,8 @@ const JSMyPost = memo(() => {
     const current = e.target.dataset
     if (current.icon) {
       setType(current.icon)
-    }
+    } 
+
   },[setType]);
 
   const [dim, setDim] = React.useState('none');
@@ -353,10 +355,10 @@ const JSMyPost = memo(() => {
             state === "내 게시글" ? (
               <div className="imgorpost">
                 <span className={type === "image"? "active" : null} data-icon="image" onClick={onClickType}>
-                  <FontAwesomeIcon icon={faImage} size="xl" />
+                  <BsImageFill data-icon="image"/>
                 </span>
                 <span className={type === "bars"? "active" : null} data-icon="bars" onClick={onClickType}>
-                  <FontAwesomeIcon icon={faBars} size="xl"/>
+                  <GiHamburgerMenu data-icon="bars"/>
                 </span>
               </div>
             ) : null
@@ -380,7 +382,7 @@ const JSMyPost = memo(() => {
           </select>
           <div>
             <input type="text" />
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <BsSearch />
           </div>
         </div>
         <hr />

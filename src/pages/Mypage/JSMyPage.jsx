@@ -7,6 +7,7 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import src from "../../assets/img/dog.png"
+import { IoLocationSharp } from "react-icons/io5"
 import icon from "../../assets/img/location.PNG"
 
 import JMFooter from "../../components/JMFooter";
@@ -159,7 +160,7 @@ const JSMyPage = memo(() => {
           </div>
           <div className='profile'>
             <span>닉네임</span>
-            <span><img src={icon} alt="icon" />보정동</span>
+            <span><IoLocationSharp/>보정동</span>
             <p>멍멍, 둘째, 셋째의 엄마 닉네임입니다. 반가워요.</p>
             <button className='profileBtn' type="button">프로필 수정</button>
             <button className='setBtn' type="button">⚙</button>
