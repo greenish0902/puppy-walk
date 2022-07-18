@@ -57,6 +57,11 @@ const DogSuppliesBox = styled.div`
     height: 160px;
     padding-bottom: 20px;
   }
+
+  .sliderbox {
+    display: inline-block;
+    width: 140px;
+  }
 `
 const DogSupplies = memo(() => {
   const {where} = useParams();
@@ -68,15 +73,16 @@ const DogSupplies = memo(() => {
       setState(false)
     }
   }, [where, state])
+  
   return (
     <>
       <JMHeader>애견용품</JMHeader>
       <DogSuppliesBox>
         <nav>
-          <MenuLink to={"/best"}>BEST</MenuLink>
-          <MenuLink to={"/category1"}>카테고리1</MenuLink>
-          <MenuLink to={"/category2"}>카테고리2</MenuLink>
-          <MenuLink to={"/category3"}>카테고리3</MenuLink>
+          <MenuLink to={"/dogsupplies/best"}>BEST</MenuLink>
+          <MenuLink to={"/dogsupplies/category1"}>카테고리1</MenuLink>
+          <MenuLink to={"/dogsupplies/category2"}>카테고리2</MenuLink>
+          <MenuLink to={"/dogsupplies/category3"}>카테고리3</MenuLink>
         </nav>
         <hr/>
         {

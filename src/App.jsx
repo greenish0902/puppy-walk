@@ -9,9 +9,9 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<DogSupplies/>}/>
-        <Route path="/:where" element={<DogSupplies/>}/>
-        <Route path="/detail/:title/:price" element={<JSGoodsDetail/>}/>
+        <Route path="/dogsupplies" element={<DogSupplies/>}/>
+        <Route path="/dogsupplies/:where" element={<DogSupplies/>}/>
+        <Route path="/goodsdetail/:title/:price" element={<JSGoodsDetail/>}/>
         <Route path="/cart" element={<JSCart/>}/>
         <Route path="/payment" element={<JSPayment/>}/>
         <Route path="/payresult" element={<JSPayResult/>}/>

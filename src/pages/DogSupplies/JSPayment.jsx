@@ -7,6 +7,7 @@ import React, { memo } from 'react';
 import styled from "styled-components"
 import { useNavigate } from 'react-router-dom';
 
+import RegexHelper from '../../libs/RegexHelper';
 import JSPayGoods from '../../components/Pay/JSPayGoods';
 import JMFooter from "../../components/JMFooter";
 import JMHeader from "../../components/JMHeader";
@@ -136,8 +137,38 @@ const JSPayment = memo(() => {
       document.head.removeChild(iamport);
     }
   }, []);
+
+  const callback = (response) => {
+    const {success, error_msg} = response;
+    if (success) {
+      alert('결제 성공');
+      navigate("/payresult")
+    } else {
+      navigate("/payresult", { state: error_msg});
+    }
+  }
+
+  const nameRef = React.useRef();
+  const telRef = React.useRef();
+  const addrRef = React.useRef();
+  const onSubmit = React.useCallback((e) => {
+    e.preventDefault();
+    if (select === "new") {
+      try {
+        RegexHelper.value(nameRef.current, "이름을 입력해주세요.")
+        RegexHelper.kor(nameRef.current, "이름은 한글만 입력해주세요.")
   
-  const onClickPayment = () => {
+        RegexHelper.value(telRef.current, "전화번호를 입력해 주세요.")
+        RegexHelper.cellPhone(telRef.current, "핸드폰 번호가 아닙니다.")
+  
+        RegexHelper.value(addrRef.current, "주소를 입력해주세요.")
+      } catch(err) {
+        alert(err.message)
+        err.field.focus();
+        return;
+      }
+    }
+
     const { IMP } = window;
     IMP.init('imp45699627');
     const data = {
@@ -153,17 +184,7 @@ const JSPayment = memo(() => {
       buyer_postcode: '06018',                      // 구매자 우편번호
     }
     IMP.request_pay(data, callback);
-  }
-
-  const callback = (response) => {
-    const {success, error_msg} = response;
-    if (success) {
-      alert('결제 성공');
-      navigate("/payresult")
-    } else {
-      navigate("/payresult", { state: error_msg});
-    }
-  }
+  },[select])
   return (
     <>
       <JMHeader>주문/결제</JMHeader>
@@ -173,7 +194,7 @@ const JSPayment = memo(() => {
           <JSPayGoods/>
           <JSPayGoods/>
         </ul>
-        <form>
+        <form onSubmit={onSubmit}>
           <label htmlFor="default">
             <input type="radio" id="default" name="default" value="default" defaultChecked checked={select === "default"} onChange={onChange}/>
             기본 배송지
@@ -193,19 +214,19 @@ const JSPayment = memo(() => {
               <p>
                 <label htmlFor="name">
                   이름 &nbsp;
-                  <input type="text" id="name" name="name" placeholder='이름을 입력하시오.'/>
+                  <input type="text" id="name" name="name" placeholder='이름을 입력하시오.' ref={nameRef}/>
                 </label>
               </p>
               <p>
-                <label htmlFor="name">
+                <label htmlFor="tel">
                   번호 &nbsp;
-                  <input type="text" id="name" name="name" placeholder='번호을 입력하시오.'/>
+                  <input type="tel" id="tel" name="tel" placeholder='번호을 입력하시오.' ref={telRef}/>
                 </label>
               </p>
               <p>
-                <label htmlFor="name">
+                <label htmlFor="addr">
                   주소 &nbsp;
-                  <input type="text" id="name" name="name" placeholder='주소를 입력하시오.'/>
+                  <input type="text" id="addr" name="addr" placeholder='주소를 입력하시오.' ref={addrRef}/>
                 </label>
               </p>
             </div>
@@ -230,7 +251,7 @@ const JSPayment = memo(() => {
               <button type="button">포인트사용</button>
             </div>
           </div>
-          <button onClick={onClickPayment} className="payBtn" type="button">결제하기</button>
+          <button className="payBtn" type="submit">결제하기</button>
         </form>
       </PaymentBox>
       <JMFooter/>
