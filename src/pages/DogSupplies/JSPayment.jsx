@@ -6,6 +6,7 @@
 import React, { memo } from 'react';
 import styled from "styled-components"
 import { useNavigate } from 'react-router-dom';
+import DaumPostcodeEmbed  from 'react-daum-postcode';
 
 import RegexHelper from '../../libs/RegexHelper';
 import JSPayGoods from '../../components/Pay/JSPayGoods';
@@ -52,12 +53,28 @@ const PaymentBox = styled.div`
 
       label {
         padding: 0;
+      }
 
-        input {
-          width: 250px;
-          height: 30px;
-          padding: 0 5px;
+      input {
+        width: 250px;
+        height: 30px;
+        padding: 0 5px;
+
+        &.postcode {
+          width: 130px;
+          margin-bottom: 10px;
         }
+        &.address, &.detailAddress, &.extraAddress {
+          margin-left: 35px;
+          margin-bottom: 10px;
+        }
+      }
+      button {
+        margin-left: 20px;
+        height: 30px;
+        width: 100px;
+        border: 1px solid black;
+        border-radius: 5px;
       }
     }
 
@@ -116,13 +133,30 @@ const PaymentBox = styled.div`
       cursor: pointer;
     }
   }
+`
 
+const DimBox = styled.div`
+  height: 940px;
+  width: 360px;
+  background: rgba(0,0,0, 0.5);
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 100;
+
+  .postcode {
+    margin-top: 50%
+  }
 `
 const JSPayment = memo(() => {
   const navigate = useNavigate();
   const [select, setSelect] = React.useState("default");
   const onChange = React.useCallback((e) => {
     setSelect(e.target.value)
+    setPostCode('');
+    setAddr('');
+    setExtraAddr('');
   },[setSelect]);
 
   React.useEffect(() => {
@@ -147,10 +181,45 @@ const JSPayment = memo(() => {
       navigate("/payresult", { state: error_msg});
     }
   }
-
+  // 이름, 전화 번호, 주소
   const nameRef = React.useRef();
   const telRef = React.useRef();
   const addrRef = React.useRef();
+  const [extraAddr, setExtraAddr] = React.useState(''); 
+  const [postcode, setPostCode] = React.useState(''); 
+  const [address, setAddr] = React.useState(''); 
+
+  const handleComplete = React.useCallback((data) => {
+    var addr = ''; // 주소 변수
+    var extraAddr = ''; // 참고항목 변수
+
+    if (data.userSelectedType === 'R') { 
+        addr = data.roadAddress;
+    } else { 
+        addr = data.jibunAddress;
+    }
+
+    if(data.userSelectedType === 'R'){
+        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+            extraAddr += data.bname;
+        }
+        if(data.buildingName !== '' && data.apartment === 'Y'){
+            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+        }
+        if(extraAddr !== ''){
+            extraAddr = ' (' + extraAddr + ')';
+        }
+        setExtraAddr(extraAddr);
+    
+    } else {
+      setExtraAddr('');
+    }
+
+    setPostCode(data.zonecode);
+    setAddr(addr);
+  },[setExtraAddr, setPostCode, setAddr])
+
+  // 결제
   const onSubmit = React.useCallback((e) => {
     e.preventDefault();
     if (select === "new") {
@@ -160,14 +229,17 @@ const JSPayment = memo(() => {
   
         RegexHelper.value(telRef.current, "전화번호를 입력해 주세요.")
         RegexHelper.cellPhone(telRef.current, "핸드폰 번호가 아닙니다.")
-  
-        RegexHelper.value(addrRef.current, "주소를 입력해주세요.")
+        
+        RegexHelper.value(addrRef.current, "주소가 없습니다.");
       } catch(err) {
         alert(err.message)
         err.field.focus();
         return;
       }
     }
+
+    const fullAddress = address + addrRef.current.value;
+    console.log(fullAddress)
 
     const { IMP } = window;
     IMP.init('imp45699627');
@@ -180,14 +252,32 @@ const JSPayment = memo(() => {
       buyer_name: '신지섭',                           // 구매자 이름
       buyer_tel: '01012341234',                     // 구매자 전화번호
       buyer_email: 'example@example',               // 구매자 이메일
-      buyer_addr: '신사동 661-16',                    // 구매자 주소
-      buyer_postcode: '06018',                      // 구매자 우편번호
+      buyer_addr: fullAddress ? fullAddress : "올림픽로 135",                    // 구매자 주소
+      buyer_postcode: postcode ? postcode : '05502',                      // 구매자 우편번호
     }
     IMP.request_pay(data, callback);
-  },[select])
+  },[select, address, postcode])
+
+    // dim state
+    const [dim, setDim] = React.useState('none');
+    const onClickY = React.useCallback((e) => {
+      setDim('block')
+      setPostCode('')
+    },[setDim, setPostCode]);
+    React.useEffect(() => {
+      if (postcode) {
+        setDim('none');
+      }
+    },[setDim, postcode])
+
   return (
     <>
       <JMHeader>주문/결제</JMHeader>
+      <DimBox style={{display:`${dim}`}}>
+        <div className="postcode">
+          <DaumPostcodeEmbed onComplete={handleComplete} autoClose={false} style={{height: 500}}/>
+        </div>
+      </DimBox>
       <PaymentBox>
         <h2>주문/결제</h2>
         <ul>
@@ -196,7 +286,7 @@ const JSPayment = memo(() => {
         </ul>
         <form onSubmit={onSubmit}>
           <label htmlFor="default">
-            <input type="radio" id="default" name="default" value="default" defaultChecked checked={select === "default"} onChange={onChange}/>
+            <input type="radio" id="default" name="default" value="default" checked={select === "default"} onChange={onChange}/>
             기본 배송지
           </label>
           <label htmlFor="new">
@@ -224,9 +314,13 @@ const JSPayment = memo(() => {
                 </label>
               </p>
               <p>
-                <label htmlFor="addr">
+                <label htmlFor="postcode">
                   주소 &nbsp;
-                  <input type="text" id="addr" name="addr" placeholder='주소를 입력하시오.' ref={addrRef}/>
+                  <input type="text" className="postcode" placeholder="우편번호" value={postcode && postcode}/>
+                  <button type="button" onClick={onClickY}>우편번호 찾기</button><br/>
+                  <input type="text" className="address" placeholder="주소" value={address && address}/><br/>
+                  <input type="text" className="detailAddress" placeholder="상세주소" ref={addrRef}/>
+                  <input type="text" className="extraAddress" placeholder="참고항목" value={extraAddr && extraAddr}/>
                 </label>
               </p>
             </div>
