@@ -15,7 +15,6 @@ import MiniLocation from './MiniLocation';
 
 const PlaceCardContainer = memo(styled.li`
   cursor: pointer;
-  margin: 0 12px 12px 0;
   padding: 8px;
   width: 144px;
   height: 200px;
