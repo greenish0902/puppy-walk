@@ -6,163 +6,253 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-import { NavLink } from 'react-router-dom';
-import { faBars, faComment } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { BiMenu } from 'react-icons/bi';
+import { TbMessageCircle2 } from 'react-icons/tb';
 
 const HeaderContainer = styled.div`
+  padding: 0 12px;
   width: 360px;
-  background-color: #eee;
+  height: 40px;
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
-  height: 40px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  transform: translateX(-50%);
   z-index: 99999;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  user-select: none;
 
   p {
-    font-size: 1.2em;
-    line-height: 40px;
-    text-align: center;
+    font-weight: bold;
   }
 
-  svg {
-    height: 20px;
-    margin: 10px 15px;
+  * {
     cursor: pointer;
+    &:hover {
+      color: var(--color-green-3);
+    }
   }
 `;
 
 const NavBarContainer = styled.div`
-  width: 0px;
+  padding-bottom: 64px;
+  width: 360px;
+  height: 560px;
+  max-height: 560px;
   position: absolute;
   top: 40px;
   left: 50%;
-  transform: translate(-50%, 0);
-  background-color: #eee9;
-  transition: width 0.2s;
-  overflow: hidden;
-  padding-bottom: 55px;
+  transform: translateX(-50%);
+  overflow-y: scroll;
+  transition: all 300ms ease;
+  background-color: #fffffff2;
+  z-index: 9;
 
-  ul {
-    &:first-child {
-      padding-top: 10px;
-      padding-left: 10px;
-    }
-    li {
-      padding: 5px;
-      font-size: 18px;
+  &.hide {
+    height: 0px;
+    padding-bottom: 0;
+  }
+
+  > ul {
+    > li {
+      padding: 4px 24px;
+      font-size: 14px;
+
       a {
-        text-decoration: none;
         display: block;
+        line-height: 2;
+
+        &:hover {
+          font-weight: bold;
+        }
+
+        span {
+          border-bottom: 4px solid var(--color-gray);
+
+          &.depth1 {
+            border-bottom: 4px solid var(--color-green-1);
+          }
+        }
       }
-      ul {
-        padding-top: 5px;
+
+      > ul {
+        padding-left: 36px;
       }
     }
   }
 `;
 
-const NavBar = ({ navref }) => {
+const NavBar = ({ navref, onClick }) => {
   return (
-    <NavBarContainer ref={navref}>
+    <NavBarContainer className="hide" ref={navref} onClick={onClick}>
       <ul>
         <li>
-          <NavLink to="/">홈페이지</NavLink>
-        </li>
-        <li>
-          <NavLink to="/">어디가개</NavLink>
+          <NavLink to="/home">
+            <span className="depth1">홈페이지</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">제휴매장</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">일반매장</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">직영매장</NavLink>
+              <NavLink to="/signup">
+                <span>회원가입</span>
+              </NavLink>
+              <NavLink to="/signin">
+                <span>로그인</span>
+              </NavLink>
+              <NavLink to="/signout">
+                <span>로그아웃</span>
+              </NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <NavLink to="/">애견용품</NavLink>
+          <NavLink to="/places">
+            <span className="depth1">어디가개</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">카테고리1</NavLink>
+              <NavLink to="/places">
+                <span>제휴매장</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">카테고리2</NavLink>
+              <NavLink to="/places">
+                <span>일반매장</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">카테고리3</NavLink>
+              <NavLink to="/places">
+                <span>직영매장</span>
+              </NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <NavLink to="/">커뮤니티</NavLink>
+          <NavLink to="/shop">
+            <span className="depth1">애견용품</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">자유게시판</NavLink>
+              <NavLink to="/shop">
+                <span>카테고리1</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">지식in</NavLink>
+              <NavLink to="/shop">
+                <span>카테고리2</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">산책코스 추천게시판</NavLink>
+              <NavLink to="/shop">
+                <span>카테고리3</span>
+              </NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <NavLink to="/">산책하개</NavLink>
+          <NavLink to="/community">
+            <span className="depth1">커뮤니티</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">산책메이트 탐색</NavLink>
+              <NavLink to="/community">
+                <span>자유게시판</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">산책번개</NavLink>
+              <NavLink to="/community">
+                <span>지식in</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">메이트관리</NavLink>
+              <NavLink to="/community">
+                <span>산책코스 추천게시판</span>
+              </NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <NavLink to="/">마이페이지</NavLink>
+          <NavLink to="/">
+            <span className="depth1">산책하개</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">내 미니홈피</NavLink>
+              <NavLink to="/">
+                <span>산책메이트 탐색</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">프로필수정</NavLink>
+              <NavLink to="/">
+                <span>산책번개</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">메시지함</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">내 구매</NavLink>
-            </li>
-            <li>
-              <NavLink to="/">내 예약</NavLink>
+              <NavLink to="/">
+                <span>메이트관리</span>
+              </NavLink>
             </li>
           </ul>
         </li>
         <li>
-          <NavLink to="/">고객센터</NavLink>
+          <NavLink to="/mypage">
+            <span className="depth1">마이페이지</span>
+          </NavLink>
           <ul>
             <li>
-              <NavLink to="/">공지사항</NavLink>
+              <NavLink to="/mypage">
+                <span>내 미니홈피</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">문의게시판</NavLink>
+              <NavLink to="/mypage">
+                <span>프로필수정</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">자주 묻는 질문</NavLink>
+              <NavLink to="/mypage">
+                <span>메시지함</span>
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/">불량회원 신고</NavLink>
+              <NavLink to="/mypage">
+                <span>내 구매</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/mypage">
+                <span>내 예약</span>
+              </NavLink>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <NavLink to="/service">
+            <span className="depth1">고객센터</span>
+          </NavLink>
+          <ul>
+            <li>
+              <NavLink to="/service">
+                <span>공지사항</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/service">
+                <span>문의게시판</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/service">
+                <span>자주 묻는 질문</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/service">
+                <span>불량회원 신고</span>
+              </NavLink>
             </li>
           </ul>
         </li>
@@ -172,25 +262,25 @@ const NavBar = ({ navref }) => {
 };
 
 const Header = ({ children }) => {
-  const nav = React.useRef();
+  const nav = React.useRef(null);
+  const navigate = useNavigate();
 
-  const OnClick = e => {
-    e.preventDefault();
+  const onClick = e => {
+    nav.current.classList.toggle('hide');
+  };
 
-    // nav.current.classList.toggle('hide');
-    nav.current.style.width =
-      nav.current.style.width === '0px' ? '360px' : '0px';
-    //   nav.current.style.height === '0px' ? '100%' : '0px';
+  const onNavClick = e => {
+    nav.current.classList.add('hide');
   };
 
   return (
     <>
       <HeaderContainer>
-        <FontAwesomeIcon icon={faBars} onClick={OnClick} />
-        <p>{children ?? ''}</p>
-        <FontAwesomeIcon icon={faComment} />
+        <BiMenu onClick={onClick} size={20} />
+        <p onClick={() => navigate('/')}>{children ?? ''}</p>
+        <TbMessageCircle2 size={20} onClick={() => navigate('/message')} />
       </HeaderContainer>
-      <NavBar navref={nav} />
+      <NavBar navref={nav} onClick={onNavClick} />
     </>
   );
 };

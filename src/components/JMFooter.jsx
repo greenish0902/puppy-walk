@@ -8,8 +8,9 @@ import React, { memo } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { BiTrip, BiGift } from 'react-icons/bi';
-import { FaDog, FaComments, FaIdCard } from 'react-icons/fa';
+import { BiGift } from 'react-icons/bi';
+import { TbMapPin, TbUserCircle, TbStars } from 'react-icons/tb';
+import { FaDog } from 'react-icons/fa';
 
 const FooterContainer = styled.div`
   width: 360px;
@@ -19,6 +20,7 @@ const FooterContainer = styled.div`
   transform: translateX(-50%);
   border-top: 1px solid #eee;
   background-color: #fff;
+  z-index: 9;
 
   ul {
     display: flex;
@@ -64,7 +66,7 @@ const JMFooter = memo(() => {
       <ul>
         <li>
           <NavLink to="/places">
-            <BiTrip size={18} />
+            <TbMapPin size={18} />
             <p>어디가개</p>
           </NavLink>
         </li>
@@ -82,13 +84,13 @@ const JMFooter = memo(() => {
         </li>
         <li>
           <NavLink to="/community">
-            <FaComments size={18} />
+            <TbStars size={18} />
             <p>커뮤니티</p>
           </NavLink>
         </li>
         <li>
           <NavLink to="/mypage">
-            <FaIdCard size={18} />
+            <TbUserCircle size={18} />
             <p>마이페이지</p>
           </NavLink>
         </li>
