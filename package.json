@@ -30,10 +30,11 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & yarn run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server --watch --port 3001 ./backend/db.json"
   },
   "eslintConfig": {
     "extends": [
