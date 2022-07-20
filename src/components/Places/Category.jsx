@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import Slider from 'react-slick';
 import styled from 'styled-components';
 
 import MainSubTitle from '../Title/MainSubTitle';
@@ -21,9 +21,37 @@ const CategoryContainer = styled.div`
     align-items: center;
     font-size: 12px;
   }
+
+  .slick-track {
+    margin: 0 4px;
+  }
+
+  .slick-arrow {
+    z-index: 99;
+
+    &.slick-prev {
+      left: 0;
+
+      &:before {
+        color: var(--color-gray);
+      }
+    }
+
+    &.slick-next {
+      right: -4px;
+
+      &:before {
+        color: var(--color-gray);
+      }
+    }
+  }
 `;
 
 const Category = ({ categories, places }) => {
+  const sliderSettings = {
+    slidesToScroll: 3,
+    slidesToShow: 3,
+  };
   // places 페이지의 전체 데이터를 props 로 전달받는다.
   const handleSort = event => {
     event.target.classList.add('active');
@@ -33,9 +61,11 @@ const Category = ({ categories, places }) => {
     <CategoryContainer>
       <MainSubTitle to="/places/cate">카테고리</MainSubTitle>
       <ul>
-        {categories.map((item, index) => (
-          <CategoryItem item={item} key={index} />
-        ))}
+        <Slider {...sliderSettings}>
+          {categories.map((item, index) => (
+            <CategoryItem item={item} key={index} />
+          ))}
+        </Slider>
       </ul>
       <TopNavWrapper className="sort" onClick={handleSort}>
         <a className="active">인기순</a>

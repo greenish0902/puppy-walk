@@ -24,9 +24,6 @@ const PlaceCardContainer = memo(styled.li`
   border-radius: 4px;
   box-shadow: 3px 3px 10px 2px rgba(0, 0, 0, 0.1);
   transition: all 500ms ease;
-  :hover {
-    transform: scale(102%);
-  }
 
   .imgBox {
     position: relative;

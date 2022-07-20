@@ -8,7 +8,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CategoryItemContainer = styled.li`
-  margin: 0 4px 4px 0;
+  margin: 0 10px 0 6px;
   padding: 8px;
   display: flex;
   align-items: center;

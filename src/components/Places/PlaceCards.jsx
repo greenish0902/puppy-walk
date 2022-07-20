@@ -11,6 +11,9 @@ import styled from 'styled-components';
 import MainSubTitle from '../Title/MainSubTitle';
 import PlaceCard from './PlaceCard';
 
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const CardUL = styled.ul`
   display: block !important;
   overflow: hidden;
@@ -19,31 +22,50 @@ const CardUL = styled.ul`
     position: relative;
 
     .slick-track {
+      margin-top: 8px;
       display: flex;
+      height: 236px;
+    }
+
+    .slick-slide {
+      transition: all 500ms ease;
+
+      &.slick-center {
+        transform: scale(106%);
+      }
     }
 
     .slick-arrow {
-      position: absolute;
-      top: 48%;
-      transform: translateY(-50%);
       z-index: 99;
 
       &.slick-prev {
         left: 0;
+
+        &:before {
+          padding: 12px;
+          color: var(--color-green-gray-1);
+        }
       }
 
       &.slick-next {
-        right: 0;
+        right: 24px;
+
+        &:before {
+          padding: 12px;
+          color: var(--color-green-gray-1);
+        }
       }
     }
 
     .slick-dots {
-      margin: 4px;
-      display: flex !important;
-      justify-content: center;
+      bottom: 0;
 
       li {
-        padding: 4px;
+        margin: 0;
+
+        button:before {
+          color: var(--color-green-gray-1);
+        }
       }
     }
   }
@@ -51,14 +73,15 @@ const CardUL = styled.ul`
 
 const PlaceCards = ({ places }) => {
   const sliderSettings = {
+    dots: true,
     className: 'center',
     centerMode: true,
     centerPadding: '88px',
-    dots: true,
     infinite: true,
     slidesToShow: 1,
     swipeToSlide: true,
     lazyLoad: true,
+    speed: 600,
   };
 
   return (
