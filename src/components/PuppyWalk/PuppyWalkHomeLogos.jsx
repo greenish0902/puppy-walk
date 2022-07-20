@@ -1,3 +1,9 @@
+/**
+ * @filename PuppyWalkHomeLogos.jsx
+ * @description 메이트신청 홈 페이지 컴포넌트
+ * @author 박정모 (oooperbjm@gmail.com)
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 import dog from '../../assets/img/dog.png';
@@ -31,54 +37,54 @@ const LogosContainer = styled.div`
           position: relative;
           top: 20px;
         }
-        p, span {
+        p,
+        span {
           position: relative;
           top: 20px;
           left: 48px;
         }
-        
+
         span {
           left: 65px;
           background-color: var(--color-green-2);
           padding: 3px 5px;
         }
-        
-      }
       }
     }
+  }
 
-    .bunge {
-      background-color: orange;
-    }
-
-`
+  .bunge {
+    background-color: orange;
+  }
+`;
 
 const PuppyWalkHomeLogos = () => {
-    return (<LogosContainer>
-        <NavLink to='./mate'>
-            <div className='outer'>
-                <div className='inner'>
-                    <div className='content-wrapper'>
-                        <img src={dog} alt='dog'/>
-                        <p>산책 메이트</p>
-                        <span>탐색</span>
-                    </div>
-                </div>
+  return (
+    <LogosContainer>
+      <NavLink to="./mate">
+        <div className="outer">
+          <div className="inner">
+            <div className="content-wrapper">
+              <img src={dog} alt="dog" />
+              <p>산책 메이트</p>
+              <span>탐색</span>
             </div>
-        </NavLink>
-        <NavLink to='./bunge'>
-            <div className='outer bunge'>
-                <div className='inner'>
-                    <div className='content-wrapper'>
-                        <img src={bunge} alt='bunge'/>
-                        <p style={{left: '55px'}}>산책 번개</p>
-                        <span style={{backgroundColor: 'orange'}}>탐색</span>
-                    </div>
-
-                </div>
+          </div>
+        </div>
+      </NavLink>
+      <NavLink to="./bunge">
+        <div className="outer bunge">
+          <div className="inner">
+            <div className="content-wrapper">
+              <img src={bunge} alt="bunge" />
+              <p style={{ left: '55px' }}>산책 번개</p>
+              <span style={{ backgroundColor: 'orange' }}>탐색</span>
             </div>
-        </NavLink>
-        </LogosContainer>);
+          </div>
+        </div>
+      </NavLink>
+    </LogosContainer>
+  );
 };
 
 export default PuppyWalkHomeLogos;
