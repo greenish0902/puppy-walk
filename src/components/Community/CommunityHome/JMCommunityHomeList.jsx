@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useAxios from 'axios-hooks';
 import ButtonWrapper from '../../ButtonWrapper';
-import '../../../assets/scss/palette.scss';
+// import '../../../assets/scss/palette.scss';
 import sample from '../../../assets/img/dog.png';
 import { NavLink } from 'react-router-dom';
 
@@ -100,7 +100,6 @@ const SingleList = ({ board }) => {
           }
         }
       });
-    console.log(result);
     return result;
   };
 
@@ -109,8 +108,8 @@ const SingleList = ({ board }) => {
       {data &&
         boardList().map((v, i) => {
           return (
-            <>
-              <div className="listWrapper" key={i}>
+            <div key={i}>
+              <div className="listWrapper">
                 <div className="imgWrapper">
                   <img src={sample} alt="sample" />
                 </div>
@@ -125,7 +124,7 @@ const SingleList = ({ board }) => {
                 </div>
               </div>
               <hr className="inner-hr" />
-            </>
+            </div>
           );
         })}
     </>

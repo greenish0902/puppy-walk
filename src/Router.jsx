@@ -12,8 +12,6 @@ import Place from './pages/Places/Place';
 import Reservation from './pages/Places/Reservation';
 import Community from './pages/Community/JMCommunity';
 import PuppyWalk from './pages/PuppyWalk/JMPuppyWalk';
-import Header from './components/JMHeader';
-import Footer from './components/JMFooter';
 import Post from './pages/Community/JMPost';
 import JSCart from './components/Cart/JSCart';
 import DogSupplies from './pages/DogSupplies/DogSupplies';
@@ -45,7 +43,6 @@ const Router = () => {
         <Route path="/signup/*" element={<Signup />} />
         <Route path="/search/*" element={<Search />} />
         <Route path="/place/:id/*" element={<Place />} />
-        <Route path="/reservation/:id/*" element={<Reservation />} />
         <Route path="/reservation/:id/*" element={<Reservation />} />
         <Route path="/community/*" element={<Community />} />
         <Route path="/puppywalk/*" element={<PuppyWalk />} />

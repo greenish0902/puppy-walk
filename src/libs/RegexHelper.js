@@ -4,7 +4,7 @@
  * @dexcription : 정규표현식 검사 수행
  */
 
-import BadRequestException from '../exception/BadRequestException';
+import BadRequestException from '../exceptions/BadRequestException';
 
 class RegexHelper {
   //constructor() {}

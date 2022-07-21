@@ -1,4 +1,296 @@
 {
+  "data": [
+    {
+      "id": 1,
+      "title": "제목1",
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "comment": "댓글 남기고 갑니다~",
+      "date": "오늘"
+    },
+    {
+      "id": 2,
+      "title": "제목2",
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "comment": "댓글 남기고 갑니다~",
+      "date": "오늘"
+    },
+    {
+      "id": 3,
+      "title": "제목3",
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "comment": "댓글 남기고 갑니다~",
+      "date": "오늘"
+    },
+    {
+      "id": 4,
+      "title": "제목4",
+      "src": "src",
+      "tag": "tag",
+      "location": "여기",
+      "authorNickname": "나",
+      "comment": "댓글 남기고 갑니다~",
+      "date": "오늘"
+    }
+  ],
+  "cart": [
+    {
+      "id": 1,
+      "order_number": 1,
+      "title": "title",
+      "count": 1,
+      "price": 10000
+    },
+    {
+      "id": 2,
+      "order_number": 2,
+      "title": "title",
+      "count": 2,
+      "price": 20000
+    },
+    {
+      "id": 3,
+      "order_number": 3,
+      "title": "title",
+      "count": 5,
+      "price": 50000
+    },
+    {
+      "id": 4,
+      "order_number": 4,
+      "title": "title",
+      "count": 3,
+      "price": 30000
+    }
+  ],
+  "post": [
+    {
+      "postNum": 1,
+      "tab": "general",
+      "tag": "강아지 자랑",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다.",
+      "content": "글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.글 내용입니다. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임",
+      "authorId": "작성자 아이디"
+    },
+    {
+      "postNum": 2,
+      "tab": "general",
+      "tag": "낙서글",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다2.",
+      "content": "글 내용입니다2. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임2",
+      "authorId": "작성자 아이디2"
+    },
+    {
+      "postNum": 3,
+      "tab": "course",
+      "tag": "",
+      "location": "낙원구 행복동",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다3.",
+      "content": "글 내용입니다3. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임3",
+      "authorId": "작성자 아이디3"
+    },
+    {
+      "postNum": 4,
+      "tab": "general",
+      "tag": "낙서글",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다4.",
+      "content": "글 내용입니다4. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임4",
+      "authorId": "작성자 아이디4"
+    },
+    {
+      "postNum": 5,
+      "tab": "course",
+      "tag": "",
+      "location": "이경구 강호동",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다5.",
+      "content": "글 내용입니다5. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임5",
+      "authorId": "작성자 아이디5"
+    },
+    {
+      "postNum": 6,
+      "tab": "general",
+      "tag": "낙서글",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다6.",
+      "content": "글 내용입니다6. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임6",
+      "authorId": "작성자 아이디6"
+    },
+    {
+      "postNum": 7,
+      "tab": "course",
+      "tag": "",
+      "location": "밥먹구 우동",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다7.",
+      "content": "글 내용입니다7. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임7",
+      "authorId": "작성자 아이디7"
+    },
+    {
+      "postNum": 8,
+      "tab": "kin",
+      "tag": "",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다8.",
+      "content": "글 내용입니다8. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임8",
+      "authorId": "작성자 아이디8"
+    },
+    {
+      "postNum": 9,
+      "tab": "kin",
+      "tag": "",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다9.",
+      "content": "글 내용입니다9. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임9",
+      "authorId": "작성자 아이디9"
+    },
+    {
+      "postNum": 10,
+      "tab": "kin",
+      "tag": "",
+      "location": "",
+      "date": "2022-06-15",
+      "img": "img href",
+      "title": "글 제목입니다10.",
+      "content": "글 내용입니다10. 사실은 매우 길 수도 있죠. 그렇습니다.",
+      "authorNickname": "작성자 닉네임10",
+      "authorId": "작성자 아이디10"
+    }
+  ],
+  "bunge": [
+    {
+      "postNum": 1,
+      "date": "2022-06-14",
+      "content": "번개내용입니다.",
+      "location": "이경구 강호동",
+      "authorNickname": "작성자 닉네임",
+      "authorId": "작성자 아이디"
+    },
+    {
+      "postNum": 2,
+      "date": "2022-06-14",
+      "content": "번개내용2입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임2",
+      "authorId": "작성자 아이디2"
+    },
+    {
+      "postNum": 3,
+      "date": "2022-06-14",
+      "content": "번개내용3입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임3",
+      "authorId": "작성자 아이디3"
+    },
+    {
+      "postNum": 4,
+      "date": "2022-06-14",
+      "content": "번개내용4입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임4",
+      "authorId": "작성자 아이디4"
+    },
+    {
+      "postNum": 5,
+      "date": "2022-06-14",
+      "content": "번개내용5입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임5",
+      "authorId": "작성자 아이디5"
+    },
+    {
+      "postNum": 6,
+      "date": "2022-06-14",
+      "content": "번개내용6입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임6",
+      "authorId": "작성자 아이디6"
+    },
+    {
+      "postNum": 7,
+      "date": "2022-06-14",
+      "content": "번개내용7입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임7",
+      "authorId": "작성자 아이디7"
+    },
+    {
+      "postNum": 8,
+      "date": "2022-06-14",
+      "content": "번개내용8입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임8",
+      "authorId": "작성자 아이디8"
+    },
+    {
+      "postNum": 9,
+      "date": "2022-06-14",
+      "content": "번개내용9입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임9",
+      "authorId": "작성자 아이디9"
+    },
+    {
+      "postNum": 10,
+      "date": "2022-06-14",
+      "content": "번개내용10입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임10",
+      "authorId": "작성자 아이디10"
+    },
+    {
+      "postNum": 11,
+      "date": "2022-06-14",
+      "content": "번개내용11입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임11",
+      "authorId": "작성자 아이디11"
+    },
+    {
+      "postNum": 12,
+      "date": "2022-06-14",
+      "content": "번개내용12입니다.",
+      "location": "강서구 강서동",
+      "authorNickname": "작성자 닉네임12",
+      "authorId": "작성자 아이디12"
+    }
+  ],
   "places": [
     {
       "src": "https://i.pinimg.com/736x/c2/43/1e/c2431eaaa365dfba263a8db3af87fbae.jpg",
