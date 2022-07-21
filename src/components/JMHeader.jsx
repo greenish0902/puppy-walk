@@ -24,7 +24,7 @@ const HeaderContainer = styled.div`
   z-index: 99999;
 
   p {
-    font-size: 1.2em;
+    font-size: 1.1em;
     line-height: 40px;
     text-align: center;
   }
@@ -46,6 +46,7 @@ const NavBarContainer = styled.div`
   transition: width 0.2s;
   overflow: hidden;
   padding-bottom: 55px;
+  z-index: 99999999;
 
   ul {
     &:first-child {
@@ -188,7 +189,9 @@ const Header = ({ children }) => {
       <HeaderContainer>
         <FontAwesomeIcon icon={faBars} onClick={OnClick} />
         <p>{children ?? ''}</p>
-        <FontAwesomeIcon icon={faComment} />
+        <NavLink to="/messanger">
+          <FontAwesomeIcon icon={faComment} />
+        </NavLink>
       </HeaderContainer>
       <NavBar navref={nav} />
     </>
