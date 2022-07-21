@@ -189,7 +189,9 @@ const Header = ({ children }) => {
       <HeaderContainer>
         <FontAwesomeIcon icon={faBars} onClick={OnClick} />
         <p>{children ?? ''}</p>
-        <FontAwesomeIcon icon={faComment} />
+        <NavLink to="/messanger">
+          <FontAwesomeIcon icon={faComment} />
+        </NavLink>
       </HeaderContainer>
       <NavBar navref={nav} />
     </>
