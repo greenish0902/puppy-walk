@@ -25,6 +25,12 @@ import JSMyPurchasePage from './pages/Mypage/JSMyPurchasePage';
 import JSMyPurchaseList from './pages/Mypage/JSMyPurchaseList';
 import JSPurchaseDetail from './pages/Mypage/JSPurchaseDetail';
 import JSMyPost from './pages/Mypage/JSMyPost';
+import JSServiceCenter from './pages/JSServiceCenter';
+import JSService from './pages/JSService';
+import JSNotice from './pages/JSNotice';
+import JSInqury from './pages/JSInqury';
+import JSFAQ from './pages/JSFAQ';
+import JSReport from './pages/JSReport';
 
 const AppContainer = styled.div`
   margin: auto;
@@ -74,6 +80,12 @@ const App = () => {
           <Route path="/purchaselist" element={<JSMyPurchaseList/>}/>
           <Route path="/purchasedetail/:date" element={<JSPurchaseDetail/>}/>
           <Route path="/minihome/post" element={<JSMyPost/>}/>
+          <Route path="/center" element={<JSServiceCenter/>}/>
+          <Route path="/service" element={<JSService/>}/>
+          <Route path="/notice" element={<JSNotice/>}/>
+          <Route path="/inqury" element={<JSInqury/>}/>
+          <Route path="/faq" element={<JSFAQ/>}/>
+          <Route path="/report" element={<JSReport/>}/>
         </Route>
       </Routes>
     </AppContainer>
