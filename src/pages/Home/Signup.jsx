@@ -46,6 +46,24 @@ const SignupContainer = styled(FrameWrapper)`
   select:focus {
     outline: 1px solid var(--color-green-1);
   }
+
+  .toLogin:hover {
+    font-weight: bold;
+  }
+
+  input {
+    &.error {
+      outline: 2px solid var(--color-light-red) !important;
+    }
+    &.success {
+      outline: 2px solid var(--color-mint-green-1);
+    }
+  }
+
+  .msg {
+    font-size: 11px;
+    color: var(--color-red);
+  }
 `;
 
 const Signup = () => {

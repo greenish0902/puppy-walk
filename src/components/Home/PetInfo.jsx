@@ -4,9 +4,11 @@
  * @author 서소희 greenish0902@gmail.com
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import checkValid from '../../utils/checkValid';
 
 import SubTitle from '../Title/SubTitle';
 import InputBox from '../Home/InputBox';
@@ -21,7 +23,7 @@ const PetInfoContainer = styled(HomeWrapper)`
     justify-content: space-between;
     .genderBox {
       margin-left: 4px;
-      width: 30%;
+      width: 32%;
       display: flex;
       flex-direction: column;
     }
@@ -53,13 +55,48 @@ const PetInfoContainer = styled(HomeWrapper)`
 `;
 
 const PetInfo = () => {
+  const [done, setDone] = useState(false);
+  const [msg, setMsg] = useState({
+    puppyName: '',
+    breed: '',
+    vaccination: '',
+  });
+  const [valid, setValid] = useState({
+    puppyName: false,
+    breed: false,
+    vaccination: false,
+  });
+  const fields = ['puppyName', 'breed', 'vaccination'];
+
+  const handleBlur = event => {
+    const field = event.target;
+    if (!fields.includes(field.name)) return;
+    try {
+      checkValid(field);
+      updateStates(field.name, '');
+    } catch (error) {
+      const { field, msg } = error;
+      updateStates(field.name, msg);
+      console.error(error);
+    }
+  };
+
+  const updateStates = (name, newMsg) => {
+    setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
+    setValid(prev => ({ ...prev, [name]: newMsg === '' ? true : false }));
+  };
+
+  useEffect(() => {
+    setDone(() => fields.every(field => valid[field]));
+  }, [valid]);
+
   return (
     <PetInfoContainer>
       <SubTitle>반려견 정보 입력</SubTitle>
-      <div className="inputs">
+      <form className="inputs" onBlur={handleBlur}>
         {/* 이름, 성별 */}
         <div className="row">
-          <InputBox label="이름" name="name" />
+          <InputBox label="이름" name="puppyName" placeholder="한글, 영문" />
           <div className="genderBox">
             <InputBox label="성별" option></InputBox>
             <select name="gender">
@@ -70,37 +107,41 @@ const PetInfo = () => {
             </select>
           </div>
         </div>
+        <p className="msg">{msg.puppyName}</p>
         {/* 견종 */}
-        <div>
+        <div onChange={handleBlur}>
           <InputBox label="견종" />
-          <select name="" id="">
+          <select name="breed" id="">
+            <option value="">---</option>
             <option value="unknown">모름</option>
             <option value="김">김멍멍</option>
             <option value="이">이멍멍</option>
           </select>
         </div>
+        <p className="msg">{msg.breed}</p>
         {/* 예방접종 여부 */}
-        <div>
+        <div onChange={handleBlur}>
           <InputBox label="예방접종 여부" />
-          <div className="radioBtns">
+          <div className="radioBtns" required>
             <label>
-              <input type="radio" />
+              <input name="vaccination" value="unknown" type="radio" />
               모름
             </label>
             <label>
-              <input type="radio" />
+              <input name="vaccination" value="false" type="radio" />
               미접종
             </label>
             <label>
-              <input type="radio" />
+              <input name="vaccination" value="ing" type="radio" />
               접종 중
             </label>
             <label>
-              <input type="radio" />
+              <input name="vaccination" value="true" type="radio" />
               접종 완료
             </label>
           </div>
         </div>
+        <p className="msg">{msg.vaccination}</p>
         {/* 생년월일: 년, 월, 일 */}
         <div>
           <InputBox label="생년월일" option />
@@ -131,7 +172,7 @@ const PetInfo = () => {
             </label>
           </div>
         </div>
-      </div>
+      </form>
       <NavWrapper>
         <div className="small">
           <Link to="/login">로그인하러 가기</Link>
@@ -140,9 +181,17 @@ const PetInfo = () => {
           <Link to="/signup/user_profile">
             <ButtonWrapper>이전</ButtonWrapper>
           </Link>
-          <Link to="/signup/pet_profile">
-            <ButtonWrapper>다음</ButtonWrapper>
-          </Link>
+          {done ? (
+            <Link to="/signup/pet_profile">
+              <ButtonWrapper color="white" bgColor="green-2">
+                다음
+              </ButtonWrapper>
+            </Link>
+          ) : (
+            <Link to="">
+              <ButtonWrapper>다음</ButtonWrapper>
+            </Link>
+          )}
         </div>
       </NavWrapper>
     </PetInfoContainer>

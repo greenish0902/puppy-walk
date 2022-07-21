@@ -4,9 +4,11 @@
  * @author 서소희 greenish0902@gmail.com
  */
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import checkValid from '../../utils/checkValid';
 
 import HomeWrapper from '../../components/Wrappers/HomeWrapper';
 import NavWrapper from '../Wrappers/NavWrapper';
@@ -41,10 +43,67 @@ const SearchIDContainer = styled(HomeWrapper)`
 `;
 
 const SearchID = () => {
+  const codeRef = useRef(null);
+  const [done, setDone] = useState(false);
+  const [valid, setValid] = useState({
+    name: false,
+    birthYear: false,
+    birthMonth: false,
+    birthDay: false,
+    contact: false,
+    code: false,
+  });
+  const [msg, setMsg] = useState({
+    name: '',
+    birthInfos: '',
+    contact: '',
+    code: '',
+  });
+  const fields = [
+    'name',
+    'birthYear',
+    'birthMonth',
+    'birthDay',
+    'contact',
+    'code',
+  ];
+
+  const handleBlur = event => {
+    const field = event.target;
+    if (!fields.includes(field.name)) return;
+    try {
+      checkValid(field);
+      field.classList.remove('error');
+      updateStates(field.name, '');
+    } catch (error) {
+      const { field, msg } = error;
+      field.classList.add('error');
+      updateStates(field.name, msg);
+    }
+  };
+
+  const updateStates = (name, newMsg) => {
+    if (name.includes('birth')) {
+      setMsg(prevMsg => ({ ...prevMsg, birthInfos: newMsg }));
+    } else setMsg(prevMsg => ({ ...prevMsg, [name]: newMsg }));
+    setValid(prev => ({ ...prev, [name]: newMsg === '' ? true : false }));
+  };
+
+  const getCode = event => {
+    event.preventDefault();
+    if (!valid.contact) return false;
+    codeRef.current.disabled = false;
+  };
+
+  useEffect(() => {
+    setDone(() => fields.every(name => valid[name] === true));
+  }, [valid]);
+
   return (
     <SearchIDContainer>
-      <div className="inputs">
+      <form className="inputs" onBlur={handleBlur}>
         <InputBox label="이름" name="name" />
+        <p className="msg">{msg.name}</p>
         {/* 생년월일: 년, 월, 일 */}
         <div>
           <InputBox label="생년월일" />
@@ -61,6 +120,7 @@ const SearchID = () => {
             <input name="birthDay" placeholder="일" />
           </div>
         </div>
+        <p className="msg">{msg.birthInfos}</p>
         {/* 전화번호: 지역번호, 전화번호, 인증번호 */}
         <div>
           <InputBox label="전화번호" />
@@ -71,16 +131,21 @@ const SearchID = () => {
           </select>
           <div className="contactBox">
             <input name="contact" type="text" placeholder="전화번호 입력" />
-            <button className="contactBtn">인증번호 받기</button>
+            <button className="contactBtn" onClick={getCode}>
+              인증번호 받기
+            </button>
           </div>
           <input
+            ref={codeRef}
             name="code"
             type="text"
             placeholder="인증번호를 입력하세요"
             disabled
           />
         </div>
-      </div>
+        <p className="msg">{msg.contact}</p>
+        <p className="msg">{msg.code}</p>
+      </form>
       <NavWrapper>
         <div className="small">
           <Link to="/signup">회원가입하러 가기</Link>
@@ -89,11 +154,17 @@ const SearchID = () => {
           <Link to="/">
             <ButtonWrapper>홈</ButtonWrapper>
           </Link>
-          <Link to="/login">
-            <ButtonWrapper color="white" bgColor="green-2">
-              아이디 찾기
-            </ButtonWrapper>
-          </Link>
+          {done ? (
+            <Link to="/login">
+              <ButtonWrapper color="white" bgColor="green-2">
+                아이디 찾기
+              </ButtonWrapper>
+            </Link>
+          ) : (
+            <Link to="/login">
+              <ButtonWrapper>아이디 찾기</ButtonWrapper>
+            </Link>
+          )}
         </div>
       </NavWrapper>
     </SearchIDContainer>

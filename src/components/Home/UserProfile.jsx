@@ -4,9 +4,9 @@
  * @author 서소희 greenish0902@gmail.com
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import SubTitle from '../Title/SubTitle';
 import InputBox from '../Home/InputBox';
@@ -39,6 +39,13 @@ const UserProfileContainer = styled(HomeWrapper)`
 `;
 
 const UserProfile = () => {
+  const [done, setDone] = useState(false);
+
+  const handleChange = event => {
+    if (event.target.value.length > 0 === done) return;
+    setDone(() => event.target.value.length > 0);
+  };
+
   return (
     <UserProfileContainer>
       <SubTitle>프로필 정보 입력</SubTitle>
@@ -46,8 +53,7 @@ const UserProfile = () => {
       <div className="inputs">
         <InputBox label="프로필 소개" />
         <textarea
-          name=""
-          id=""
+          onChange={handleChange}
           cols="30"
           rows="10"
           placeholder="20자 이상 입력해주세요."
@@ -61,9 +67,17 @@ const UserProfile = () => {
           <Link to="/signup/user_info">
             <ButtonWrapper>이전</ButtonWrapper>
           </Link>
-          <Link to="/signup/pet_info">
-            <ButtonWrapper>다음</ButtonWrapper>
-          </Link>
+          {done ? (
+            <Link to="/signup/pet_info">
+              <ButtonWrapper color="white" bgColor="green-2">
+                다음
+              </ButtonWrapper>
+            </Link>
+          ) : (
+            <Link to="">
+              <ButtonWrapper>다음</ButtonWrapper>
+            </Link>
+          )}
         </div>
       </NavWrapper>
     </UserProfileContainer>
