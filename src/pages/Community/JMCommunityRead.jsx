@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import useAxios from 'axios-hooks';
 import { NavLink } from 'react-router-dom';
 import ButtonWrapper from '../../components/ButtonWrapper';
@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../../assets/scss/palette.scss';
-import BottomBox from '../../components/Size/BottomBox';
+import BottomBox from "../../components/Size/BottomBox";
 
 const CommunityReadContainer = styled.div`
   width: 340px;
@@ -147,17 +147,18 @@ const CommunityReadContainer = styled.div`
         p {
           line-height: 35px;
           margin-left: 5px;
-          font-size: 0.8em;
+          font-size: .8em;
 
           span {
-            font-size: 0.8em;
+            font-size: .8em;
             color: var(--color-text-gray);
           }
         }
+
       }
 
       .comment-text {
-        font-size: 0.7em;
+        font-size: .7em;
         margin: 10px;
         padding-bottom: 5px;
       }
@@ -174,119 +175,112 @@ const CommunityReadContainer = styled.div`
   }
 `;
 
-const CommunityRead = memo(({ tab }) => {
-  const params = useParams();
 
-  const [{ data, loading, error }, refetch] = useAxios(
-    `http://localhost:3001/post?postNum=${params.postNum}`,
-  );
+const CommunityRead = memo(({tab}) => {
+    const params = useParams();
 
-  const post = data && data[0];
+    const [{data, loading, error}, refetch] = useAxios(
+        `http://localhost:3001/post?postNum=${params.postNum}`,
+    );
 
-  return (
-    <CommunityReadContainer>
-      <div className="tab-tag-title">
-        <p>
-          {tab === 'general'
-            ? `자유게시판 > ${data && post.tag}`
-            : tab === 'kin'
-            ? '지식in'
-            : '산책코스추천'}
-        </p>
 
-        <div>
-          <h3>{post && post.title}</h3>
-          <NavLink to={`/community/${post && post.tab}`}>
-            <ButtonWrapper
-              width="60px"
-              height="20px"
-              padding="2px"
-              bgColor="text-gray"
-              color="white"
-            >
-              목록보기
-            </ButtonWrapper>
-          </NavLink>
-        </div>
-        <hr />
-      </div>
-      <div className="writer">
-        <div className="profile-image"></div>
-        <h5>{post && post.authorNickname}</h5>
-        <p>{post && post.date}</p>
-        <ButtonWrapper
-          width="60px"
-          height="20px"
-          padding="2px"
-          bgColor="green-2"
-          color="white"
-        >
-          메이트 신청
-        </ButtonWrapper>
-      </div>
-      <hr />
-      <ImageSlider
-        imgList={[
-          'https://image.news1.kr/system/photos/2018/8/3/3239143/article.jpg/dims/optimize',
-          'http://cdn.lecturernews.com/news/photo/202203/93345_312029_1841.jpg',
-        ]}
-      />
-      <div className="post">
-        <p>{post && post.content}</p>
-      </div>
-      <div className="thumbup">
-        <ButtonWrapper
-          width="50px"
-          bgColor="green-2"
-          color="white"
-          height="30px"
-          padding="1px"
-        >
-          👍24
-        </ButtonWrapper>
-      </div>
-      <div className="control">
-        <ButtonWrapper
-          width="60px"
-          height="20px"
-          padding="2px"
-          bgColor="red"
-          color="white"
-        >
-          삭제하기
-        </ButtonWrapper>
-        <ButtonWrapper
-          width="60px"
-          height="20px"
-          padding="2px"
-          bgColor="text-gray"
-          color="white"
-        >
-          수정하기
-        </ButtonWrapper>
-      </div>
-      <div className="comment">
-        <div className="comment-head">
-          <FontAwesomeIcon icon={faComment} />
-          <p>comment</p>
-        </div>
-        <hr />
-        {/* 댓글 반복문 영역 */}
-        <Comment
-          writer="댓글작성자"
-          date="2022-05-05"
-          content="댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. "
-        />
-        {/* 댓글 반복문 영역 */}
-        <hr />
-        <textarea />
-        <ButtonWrapper bgColor="green-2" color="white">
-          댓글등록
-        </ButtonWrapper>
-      </div>
-      <BottomBox />
-    </CommunityReadContainer>
-  );
+    const post = data && data[0];
+
+    return (
+        <CommunityReadContainer>
+            <div className="tab-tag-title">
+                <p>
+                    {tab === 'general'
+                        ? `자유게시판 > ${data && post.tag}`
+                        : tab === 'kin'
+                            ? '지식in'
+                            : '산책코스추천'}
+                </p>
+
+                <div>
+                    <h3>{post && post.title}</h3>
+                    <NavLink to={`/community/${post && post.tab}`}>
+                        <ButtonWrapper
+                            width="60px"
+                            height="20px"
+                            padding="2px"
+                            bgColor="text-gray"
+                            color="white"
+                        >
+                            목록보기
+                        </ButtonWrapper>
+                    </NavLink>
+                </div>
+                <hr/>
+            </div>
+            <div className="writer">
+                <div className="profile-image"></div>
+                <h5>{post && post.authorNickname}</h5>
+                <p>{post && post.date}</p>
+                <ButtonWrapper
+                    width="60px"
+                    height="20px"
+                    padding="2px"
+                    bgColor="green-2"
+                    color="white"
+                >
+                    메이트 신청
+                </ButtonWrapper>
+            </div>
+            <hr/>
+            <ImageSlider
+                imgList={["https://image.news1.kr/system/photos/2018/8/3/3239143/article.jpg/dims/optimize", "http://cdn.lecturernews.com/news/photo/202203/93345_312029_1841.jpg"]}/>
+            <div className="post">
+                <p>{post && post.content}</p>
+            </div>
+            <div className="thumbup">
+                <ButtonWrapper
+                    width="50px"
+                    bgColor="green-2"
+                    color="white"
+                    height="30px"
+                    padding="1px"
+                >
+                    👍24
+                </ButtonWrapper>
+            </div>
+            <div className="control">
+                <ButtonWrapper
+                    width="60px"
+                    height="20px"
+                    padding="2px"
+                    bgColor="red"
+                    color="white"
+                >
+                    삭제하기
+                </ButtonWrapper>
+                <ButtonWrapper
+                    width="60px"
+                    height="20px"
+                    padding="2px"
+                    bgColor="text-gray"
+                    color="white"
+                >
+                    수정하기
+                </ButtonWrapper>
+            </div>
+            <div className='comment'>
+                <div className='comment-head'>
+                    <FontAwesomeIcon icon={faComment}/>
+                    <p>comment</p>
+                </div>
+                <hr/>
+                {/* 댓글 반복문 영역 */}
+                <Comment writer='댓글작성자' date='2022-05-05'
+                         content='댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. 댓글이지롱. '/>
+                {/* 댓글 반복문 영역 */}
+                <hr/>
+                <textarea/>
+                <ButtonWrapper bgColor='green-2' color='white'>댓글등록</ButtonWrapper>
+            </div>
+            <BottomBox/>
+        </CommunityReadContainer>
+    );
 });
 
 export default CommunityRead;
