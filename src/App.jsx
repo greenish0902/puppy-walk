@@ -16,6 +16,13 @@ const AppContainer = styled.div`
 
 const App = () => {
   return (
+    // <AppContainer>
+    //     <Routes>
+    //         <Route path='/community/*' element={<Community />} />
+    //         <Route path='/puppywalk/*' element={<PuppyWalk />} />
+    //         <Route path="/post" element={<Post />} />
+    //     </Routes>
+    // </AppContainer>
     <AppContainer>
       <Router />
     </AppContainer>
