@@ -1,6 +1,6 @@
+import {Routes, Route} from "react-router-dom"
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Routes, Route } from 'react-router-dom';
 
 import Main from './Main';
 import Home from './pages/Home/Home';
@@ -14,6 +14,11 @@ import PuppyWalk from "./pages/PuppyWalk/JMPuppyWalk";
 import Header from './components/JMHeader';
 import Footer from './components/JMFooter';
 import Post from "./pages/Community/JMPost";
+import JSCart from './components/Cart/JSCart';
+import DogSupplies from './pages/DogSupplies/DogSupplies';
+import JSGoodsDetail from './pages/DogSupplies/JSGoodsDetail';
+import JSPayment from './pages/DogSupplies/JSPayment';
+import JSPayResult from './pages/DogSupplies/JSPayResult';
 
 const AppContainer = styled.div`
   margin: auto;
@@ -50,6 +55,12 @@ const App = () => {
           <Route path="/community/*" element={<Community />} />
           <Route path='/puppywalk/*' element={<PuppyWalk />} />
           <Route path="/post" element={<Post />} />
+          <Route path="/dogsupplies" element={<DogSupplies/>}/>
+          <Route path="/dogsupplies/:where" element={<DogSupplies/>}/>
+          <Route path="/goodsdetail/:title/:price" element={<JSGoodsDetail/>}/>
+          <Route path="/cart" element={<JSCart/>}/>
+          <Route path="/payment" element={<JSPayment/>}/>
+          <Route path="/payresult" element={<JSPayResult/>}/>
         </Route>
       </Routes>
     </AppContainer>
