@@ -1,6 +1,6 @@
 /**
  * @filename : RegexHelper.js
- * @author : 신지섭 (pon0304616@gmail.com)
+ * @author : 이광호 (leekh4232@gmail.com)
  * @dexcription : 정규표현식 검사 수행
  */
 
