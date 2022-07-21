@@ -19,6 +19,12 @@ import DogSupplies from './pages/DogSupplies/DogSupplies';
 import JSGoodsDetail from './pages/DogSupplies/JSGoodsDetail';
 import JSPayment from './pages/DogSupplies/JSPayment';
 import JSPayResult from './pages/DogSupplies/JSPayResult';
+import JSMyPage from './pages/Mypage/JSMyPage';
+import JSMiniHome from './pages/Mypage/JSMiniHome';
+import JSMyPurchasePage from './pages/Mypage/JSMyPurchasePage';
+import JSMyPurchaseList from './pages/Mypage/JSMyPurchaseList';
+import JSPurchaseDetail from './pages/Mypage/JSPurchaseDetail';
+import JSMyPost from './pages/Mypage/JSMyPost';
 
 const AppContainer = styled.div`
   margin: auto;
@@ -61,6 +67,13 @@ const App = () => {
           <Route path="/cart" element={<JSCart/>}/>
           <Route path="/payment" element={<JSPayment/>}/>
           <Route path="/payresult" element={<JSPayResult/>}/>
+          <Route path="/mypage" element={<JSMyPage/>}/>
+          <Route path="/minihome" element={<JSMiniHome/>}/>
+          <Route path="/cart" element={<JSCart/>}/>
+          <Route path="/purchase" element={<JSMyPurchasePage/>}/>
+          <Route path="/purchaselist" element={<JSMyPurchaseList/>}/>
+          <Route path="/purchasedetail/:date" element={<JSPurchaseDetail/>}/>
+          <Route path="/minihome/post" element={<JSMyPost/>}/>
         </Route>
       </Routes>
     </AppContainer>
