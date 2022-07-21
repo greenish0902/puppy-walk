@@ -33,14 +33,14 @@ const FooterContainer = styled.div`
 
     li {
       padding-top: 5px;
-      &:nth-child(3) {
-        background-color: white;
-      }
-
-      // NavLink 라우팅 이후에 위 옵션 끄고 아래 옵션 켜기
-      /* .active {
+      /* &:nth-child(3) {
         background-color: white;
       } */
+
+      // NavLink 라우팅 이후에 위 옵션 끄고 아래 옵션 켜기
+      .active {
+        background-color: white;
+      }
 
       a {
         width: 72px;
@@ -75,31 +75,31 @@ const JMFooter = memo(() => {
     <FooterContainer>
       <ul>
         <li>
-          <NavLink to="/">
+          <NavLink to="/places">
             <FontAwesomeIcon icon={faMapLocationDot} size="2x" />
             <p>어디가개</p>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/shop">
             <FontAwesomeIcon icon={faGift} size="2x" />
             <p>애견용품</p>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/puppywalk">
             <FontAwesomeIcon icon={faDog} size="2x" />
             <p>같이 산책하개</p>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/community">
             <FontAwesomeIcon icon={faComments} size="2x" />
             <p>커뮤니티</p>
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/mypage">
             <FontAwesomeIcon icon={faIdCard} size="2x" />
             <p>마이페이지</p>
           </NavLink>
