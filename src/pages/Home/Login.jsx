@@ -74,7 +74,6 @@ const Login = () => {
       const { id, password } = formRef.current;
       checkValid(id);
       checkValid(password);
-      // db에서 password check, 실패시 에러 객체 반환
       signin(id.value);
       navigate('/');
     } catch (error) {
