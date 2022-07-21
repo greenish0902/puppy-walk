@@ -21,7 +21,6 @@ const CategoryContainer = styled.div`
     align-items: center;
     font-size: 12px;
   }
-
   .slick-track {
     margin: 0 4px;
   }
@@ -48,7 +47,7 @@ const CategoryContainer = styled.div`
 `;
 
 const Category = ({ categories, places }) => {
-  const sliderSettings = {
+  const categorySetting = {
     slidesToScroll: 3,
     slidesToShow: 3,
   };
@@ -61,7 +60,7 @@ const Category = ({ categories, places }) => {
     <CategoryContainer>
       <MainSubTitle to="/places/cate">카테고리</MainSubTitle>
       <ul>
-        <Slider {...sliderSettings}>
+        <Slider {...categorySetting}>
           {categories.map((item, index) => (
             <CategoryItem item={item} key={index} />
           ))}
