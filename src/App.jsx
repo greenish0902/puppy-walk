@@ -9,6 +9,11 @@ import Signup from './pages/Home/Signup';
 import Search from './pages/Home/Search';
 import Place from './pages/Places/Place';
 import Reservation from './pages/Places/Reservation';
+import Community from './pages/Community/JMCommunity';
+import PuppyWalk from "./pages/PuppyWalk/JMPuppyWalk";
+import Header from './components/JMHeader';
+import Footer from './components/JMFooter';
+import Post from "./pages/Community/JMPost";
 
 const AppContainer = styled.div`
   margin: auto;
@@ -26,15 +31,25 @@ const App = () => {
   const [first, setFirst] = useState(false);
 
   return (
+      // <AppContainer>
+      //     <Routes>
+      //         <Route path='/community/*' element={<Community />} />
+      //         <Route path='/puppywalk/*' element={<PuppyWalk />} />
+      //         <Route path="/post" element={<Post />} />
+      //     </Routes>
+      // </AppContainer>
     <AppContainer>
       <Routes>
         <Route>
-          <Route path="/*" element={first ? <Home /> : <Main />} />
+          <Route path="/*" exact={true} element={first ? <Home /> : <Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup/*" element={<Signup />} />
           <Route path="/search/*" element={<Search />} />
           <Route path="/place/:id/*" element={<Place />} />
           <Route path="/reservation/:id/*" element={<Reservation />} />
+          <Route path="/community/*" element={<Community />} />
+          <Route path='/puppywalk/*' element={<PuppyWalk />} />
+          <Route path="/post" element={<Post />} />
         </Route>
       </Routes>
     </AppContainer>

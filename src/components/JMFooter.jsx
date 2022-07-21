@@ -87,7 +87,7 @@ const JMFooter = memo(() => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/">
+          <NavLink to="/puppywalk">
             <FontAwesomeIcon icon={faDog} size="2x" />
             <p>같이 산책하개</p>
           </NavLink>
