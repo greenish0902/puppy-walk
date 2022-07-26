@@ -132,22 +132,27 @@ const NavBar = ({ navref, onClick }) => {
           </ul>
         </li>
         <li>
-          <NavLink to="/shop">
+          <NavLink to="/dogsupplies">
             <span className="depth1">애견용품</span>
           </NavLink>
           <ul>
             <li>
-              <NavLink to="/shop">
+              <NavLink to="/dogsupplies/best">
+                <span>BEST</span>
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dogsupplies/category1">
                 <span>카테고리1</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/shop">
+              <NavLink to="/dogsupplies/category2">
                 <span>카테고리2</span>
               </NavLink>
             </li>
             <li>
-              <NavLink to="/shop">
+              <NavLink to="/dogsupplies/category3">
                 <span>카테고리3</span>
               </NavLink>
             </li>

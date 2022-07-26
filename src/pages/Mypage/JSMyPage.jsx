@@ -154,6 +154,9 @@ const JSMyPage = memo(() => {
   const onClickReservation = React.useCallback(() => {
     navigate('/reservation/:id/*')
   },[navigate])
+  const onClickServiceCenter = React.useCallback(() => {
+    navigate('/center')
+  },[navigate])
   return (
     <>
       <JMHeader>마이페이지</JMHeader>
@@ -202,7 +205,7 @@ const JSMyPage = memo(() => {
             <p>&gt;</p>
           </div>
           <div className='homeBox'>
-            <p>고객센터</p>
+            <p onClick={onClickServiceCenter}>고객센터</p>
             <p>&gt;</p>
           </div>
           <hr/>

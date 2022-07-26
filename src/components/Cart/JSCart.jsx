@@ -19,7 +19,7 @@ const CartBox = styled.div`
   margin: auto;
   overflow: scroll;
 
-  &:-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 0px;
   }
   
@@ -117,6 +117,7 @@ const DimBox = styled.div`
   transform: translateX(-50%);
   position: absolute;
   z-index: 100;
+
   .moveBtn{
     position: absolute;
     top: 50%;

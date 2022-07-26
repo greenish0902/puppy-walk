@@ -31,7 +31,7 @@ const GoodsBox = styled.a`
 `
 const Goods = memo(({src, title, price}) => {
   return (
-    <GoodsBox href={`/detail/${title}/${price}`}>
+    <GoodsBox href={`/goodsdetail/${title}/${price}`}>
       <img src={src} alt={title}/>
       <p>{title}</p>
       <p>{price}</p>

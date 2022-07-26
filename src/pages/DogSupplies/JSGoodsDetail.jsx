@@ -165,7 +165,7 @@ const GoodsDetail = memo(() => {
     setCount(count+ 1)
   },[setCount, count]);
   const onClickCart = React.useCallback(() => {
-    navigate(`/cart/${title}/${count}/${price}`)
+    navigate(`/cart`)
   },[navigate, title, count, price])
   // 상세정보, 후기, 제품문의
   const [tab, setTab] = React.useState("detail");
