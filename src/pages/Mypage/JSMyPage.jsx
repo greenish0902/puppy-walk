@@ -8,15 +8,19 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import src from "../../assets/img/dog.png"
 import { IoLocationSharp } from "react-icons/io5"
-import icon from "../../assets/img/location.PNG"
 
 import JMFooter from "../../components/JMFooter";
 import JMHeader from "../../components/JMHeader";
 
 const MyPageBox = styled.div`
-  height: 600px;
+  height: 500px;
   width: 360px;
   margin: 50px auto 55px auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 
   button {
     cursor: pointer;

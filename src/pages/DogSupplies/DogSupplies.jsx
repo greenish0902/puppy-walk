@@ -19,10 +19,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 const DogSuppliesBox = styled.div`
-  height: 960px;
+  height: 530px;
   width: 360px;
   padding: 10px;
   margin: 40px auto 55px auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
   nav {
     text-align: center;
   }
@@ -36,7 +41,7 @@ const DogSuppliesBox = styled.div`
       float: left;
       box-sizing: border-box;
       width: 140px;
-      margin: 0 80px 20px 0;
+      margin: 0 40px 20px 0;
       &:nth-child(2n) {
         margin-right: 0px;
       }
@@ -88,6 +93,9 @@ const DogSupplies = memo(() => {
         {
           state ? (
             <div className='categoryItem'>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
+              <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
               <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
               <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>
               <JSGoods data-title={where} data-price={"100"} src={img} title={where} price="10,000"/>

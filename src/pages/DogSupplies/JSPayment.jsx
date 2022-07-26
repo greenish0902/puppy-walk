@@ -14,8 +14,13 @@ import JMFooter from "../../components/JMFooter";
 import JMHeader from "../../components/JMHeader";
 const PaymentBox = styled.div`
   width: 360px;
-  height: 600px;
+  height: 500px;
   margin: 40px auto 55px auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 
   h2 {
     margin: 10px 0 10px 10px;
@@ -136,7 +141,7 @@ const PaymentBox = styled.div`
 `
 
 const DimBox = styled.div`
-  height: 940px;
+  height: 600px;
   width: 360px;
   background: rgba(0,0,0, 0.5);
   top: 40px;

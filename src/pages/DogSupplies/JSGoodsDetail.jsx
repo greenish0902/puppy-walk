@@ -13,6 +13,12 @@ import img from '../../assets/img/dog.png';
 const GoodsDetailBox = styled.div`
   width: 360px;
   margin: 40px auto 55px auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+
   img{
     display: block;
     width: 360px;
@@ -89,7 +95,7 @@ const GoodsDetailBox = styled.div`
 
 `
 const DimBox = styled.div`
-  height: 940px;
+  height: 530px;
   width: 360px;
   background: rgba(0,0,0, 0.5);
   top: 40px;

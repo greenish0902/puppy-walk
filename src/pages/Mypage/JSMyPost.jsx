@@ -15,8 +15,14 @@ import JMHeader from '../../components/JMHeader'
 
 const MyPostBox = styled.div`
   padding-top: 40px;
+  height: 530px;
   width: 360px;
   margin: auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
   
   .chose {
     height: 50px;

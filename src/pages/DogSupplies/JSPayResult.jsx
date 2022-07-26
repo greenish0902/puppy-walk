@@ -84,7 +84,7 @@ const ErrorBox = styled.div`
 `
 const JSPayResult = memo(() => {
   const { state } = useLocation();
-  const result = false;
+  const result = true;
   const navigate = useNavigate();
   const onClick = React.useCallback(() => {
     navigate("/payment")

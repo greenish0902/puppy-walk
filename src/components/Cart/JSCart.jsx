@@ -15,9 +15,14 @@ import img from '../../assets/img/dog.png';
 
 const CartBox = styled.div`
   width: 360px;
-  height: 600px;
+  height: 500px;
   margin: auto;
+  overflow: scroll;
 
+  &:-webkit-scrollbar {
+    width: 0px;
+  }
+  
   .deleteBtn{
     background: #999999;
     border: none;

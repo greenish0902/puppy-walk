@@ -16,8 +16,14 @@ import JSPostBox from '../../components/Minihome/JSPostBox';
 import JSPurchaseBox from '../../components/Minihome/JSPurchaseBox';
 
 const MiniHomeBox = styled.div`
+  height: 530px;
   width: 360px;
   margin: 50px auto 55px auto;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
   
   .titleBox {
     width: 350px;
@@ -108,7 +114,7 @@ const MiniHomeBox = styled.div`
   }
 `
 const DimBox = styled.div`
-  height: 940px;
+  height: 515px;
   width: 360px;
   background: rgba(0,0,0, 0.5);
   top: 40px;
@@ -122,11 +128,17 @@ const DimBox = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 480px;
     width: 320px;
     background: white;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
-    
+    overflow: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
     .container {
       margin: 50px 0;
       position: relative;
@@ -153,7 +165,7 @@ const DimBox = styled.div`
       .dogImg {
         float: left;
         box-sizing: border-box;
-        margin-right: 15px;
+        margin-right: 10px;
         border: 1px solid black;
         border-radius: 50%;;
         img {
@@ -222,7 +234,7 @@ const DimBox = styled.div`
       background: rgba(127, 127, 127, 0.5);
       position: absolute;
       left: 50%;
-      top: 100%;
+      bottom: -30%;
       transform: translateX(-50%);
     }
   }
