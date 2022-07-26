@@ -13,11 +13,8 @@ import JMHeader from "../../components/JMHeader";
 import JSGoods from '../../components/DogSupplies/JSGoods';
 import img from '../../assets/img/dog.png';
 
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import Slider from 'react-slick';
 
-// Import Swiper styles
-import "swiper/css";
 const DogSuppliesBox = styled.div`
   height: 530px;
   width: 360px;
@@ -28,6 +25,7 @@ const DogSuppliesBox = styled.div`
   &::-webkit-scrollbar {
     width: 0px;
   }
+
   nav {
     text-align: center;
   }
@@ -70,6 +68,13 @@ const DogSuppliesBox = styled.div`
 `
 const DogSupplies = memo(() => {
   const {where} = useParams();
+  const setting = {
+    dots: false,
+    infinite: false,
+    arrows: false,
+    slidesToScroll: 2,
+    slidesToShow: 2,
+  }
   const [state, setState] = React.useState(false);
   useEffect(() => {
     if (where) {
@@ -104,53 +109,33 @@ const DogSupplies = memo(() => {
           ) : (
             <div>
               <h4>BEST</h4>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={20}
-                slidesPerGroup={1}
-                className="mySwiper"
-              >
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-              </Swiper>
+              <Slider {...setting}>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+              </Slider>
               <h4>카테고리1</h4>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={20}
-                slidesPerGroup={1}
-                className="mySwiper"
-              >
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-              </Swiper>
+              <Slider {...setting}>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+              </Slider>
               <h4>카테고리2</h4>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={20}
-                slidesPerGroup={1}
-                className="mySwiper"
-              >
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-              </Swiper>
+              <Slider {...setting}>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+              </Slider>
               <h4>카테고리3</h4>
-              <Swiper
-                slidesPerView={2}
-                spaceBetween={20}
-                slidesPerGroup={1}
-                className="mySwiper"
-              >
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-                <SwiperSlide><JSGoods src={img} title="title" price="10,000"/></SwiperSlide>
-              </Swiper>
+              <Slider {...setting}>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+                <JSGoods src={img} title="title" price="10,000"/>
+              </Slider>
             </div>
           )
         }

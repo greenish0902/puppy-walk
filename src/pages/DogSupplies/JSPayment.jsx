@@ -151,7 +151,7 @@ const DimBox = styled.div`
   z-index: 100;
 
   .postcode {
-    margin-top: 50%
+    margin-top: 5%
   }
 `
 const JSPayment = memo(() => {
@@ -199,23 +199,22 @@ const JSPayment = memo(() => {
     var extraAddr = ''; // 참고항목 변수
 
     if (data.userSelectedType === 'R') { 
-        addr = data.roadAddress;
+      addr = data.roadAddress;
     } else { 
-        addr = data.jibunAddress;
+      addr = data.jibunAddress;
     }
 
     if(data.userSelectedType === 'R'){
-        if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-            extraAddr += data.bname;
-        }
-        if(data.buildingName !== '' && data.apartment === 'Y'){
-            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-        }
-        if(extraAddr !== ''){
-            extraAddr = ' (' + extraAddr + ')';
-        }
-        setExtraAddr(extraAddr);
-    
+      if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+          extraAddr += data.bname;
+      }
+      if(data.buildingName !== '' && data.apartment === 'Y'){
+          extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+      }
+      if(extraAddr !== ''){
+          extraAddr = ' (' + extraAddr + ')';
+      }
+      setExtraAddr(extraAddr);
     } else {
       setExtraAddr('');
     }
@@ -243,9 +242,6 @@ const JSPayment = memo(() => {
       }
     }
 
-    const fullAddress = address + addrRef.current.value;
-    console.log(fullAddress)
-
     const { IMP } = window;
     IMP.init('imp45699627');
     const data = {
@@ -257,11 +253,12 @@ const JSPayment = memo(() => {
       buyer_name: '신지섭',                           // 구매자 이름
       buyer_tel: '01012341234',                     // 구매자 전화번호
       buyer_email: 'example@example',               // 구매자 이메일
-      buyer_addr: fullAddress ? fullAddress : "올림픽로 135",                    // 구매자 주소
+      buyer_addr: address ? address : "올림픽로 135",                    // 구매자 주소
       buyer_postcode: postcode ? postcode : '05502',                      // 구매자 우편번호
     }
     IMP.request_pay(data, callback);
   },[select, address, postcode])
+
 
     // dim state
     const [dim, setDim] = React.useState('none');
